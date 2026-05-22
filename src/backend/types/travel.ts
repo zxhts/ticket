@@ -6,7 +6,7 @@ export type SeatType =
   | "硬卧"
   | "软卧"
   | "动卧"
-  | "硬卧代硬座"
+  | "硬卧代硬座";
 
 export type TravelRecord = {
   id: string;

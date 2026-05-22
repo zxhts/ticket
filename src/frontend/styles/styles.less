@@ -236,6 +236,17 @@ button {
   @media (max-width: 1100px) { grid-template-columns: 1fr; }
 }
 
+.dashboard-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+
+  @media (max-width: 1100px) { grid-template-columns: 1fr; }
+}
+
+.dashboard-wide { grid-column: 1 / -1; }
+
 .records-grid {
   display: grid;
   gap: 16px;
@@ -330,6 +341,11 @@ button {
   margin-bottom: 10px;
   color: @muted;
   font-size: 12px;
+
+  h3 {
+    color: @text;
+    font-size: 16px;
+  }
 }
 
 .bars { display: grid; gap: 10px; }
@@ -356,6 +372,76 @@ button {
   background: linear-gradient(90deg, @accent, #61a3ff);
 
   &.green { background: linear-gradient(90deg, @accent2, #46c6a4); }
+}
+
+.dashboard-stats { margin-bottom: 0; }
+
+.rechart-box {
+  width: 100%;
+  height: 320px;
+  min-width: 0;
+
+  &.compact { height: 280px; }
+
+  .recharts-wrapper,
+  .recharts-surface {
+    outline: none;
+  }
+
+  .recharts-cartesian-axis-tick-value,
+  .recharts-legend-item-text {
+    fill: @muted;
+    color: @muted !important;
+    font-size: 12px;
+  }
+}
+
+.rechart-pie-layout {
+  min-width: 0;
+}
+
+.chart-skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: @radius-lg;
+  background: linear-gradient(90deg, #f3f6fb, #e9f0fa, #f3f6fb);
+}
+
+.chart-tooltip {
+  display: grid;
+  gap: 7px;
+  min-width: 150px;
+  padding: 10px 12px;
+  border: 1px solid rgba(219,227,239,0.96);
+  border-radius: @radius-lg;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 14px 34px rgba(24,32,51,0.14);
+
+  strong {
+    color: @text;
+    font-size: 13px;
+  }
+
+  p {
+    display: grid;
+    grid-template-columns: 10px 1fr auto;
+    align-items: center;
+    gap: 8px;
+    color: @muted;
+    font-size: 12px;
+  }
+
+  i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  em {
+    color: @text;
+    font-style: normal;
+    font-weight: 700;
+  }
 }
 
 // ── Chip 标签 ─────────────────────────────────────
@@ -562,9 +648,27 @@ button {
 }
 
 // ── 车票 ─────────────────────────────────────────
+.ticket-panel {
+  display: flex;
+  max-height: calc(100vh - 96px);
+  flex-direction: column;
+
+  .panel-head {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 1100px) { max-height: 78vh; }
+}
+
 .ticket-grid {
   display: grid;
+  flex: 1 1 auto;
   gap: 12px;
+  align-content: start;
+  grid-auto-rows: max-content;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
 }
 
 .ticket {
@@ -574,6 +678,7 @@ button {
   border-radius: @radius-xl;
   border: 1px solid #dfe7f2;
   overflow: hidden;
+  min-height: 236px;
 
   &::before, &::after {
     content: "";
@@ -658,12 +763,19 @@ button {
   }
 
   .ticket-panel {
+    display: block;
+    max-height: none;
+    overflow: visible;
     box-shadow: none;
     border: 0;
     padding: 0;
   }
 
-  .ticket-grid { gap: 10px; }
+  .ticket-grid {
+    gap: 10px;
+    overflow: visible;
+    padding-right: 0;
+  }
 
   .ticket { break-inside: avoid; box-shadow: none; }
 }

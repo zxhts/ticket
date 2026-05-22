@@ -80,7 +80,7 @@ export function normalizeRecord(item: unknown, index: number): TravelRecord | nu
     train: record.train,
     from: record.from,
     to: record.to,
-    seat: seatOptions.includes(record.seat) ? record.seat : "二等座",
+    seat: normalizeSeat(record.seat),
     seatNo: record.seatNo || "",
     fare: Number(record.fare.toFixed(1)),
     duration: record.duration,
@@ -198,6 +198,7 @@ function normalizeDate(value: string) {
   return hour && minute ? `${date} ${hour.padStart(2, "0")}:${minute.padStart(2, "0")}` : date;
 }
 
-function normalizeSeat(value: string): SeatType {
+function normalizeSeat(value: string | undefined): SeatType {
+  if (!value) return "二等座";
   return seatOptions.find((seat) => value.includes(seat)) || "二等座";
 }
