@@ -376,72 +376,12 @@ button {
 
 .dashboard-stats { margin-bottom: 0; }
 
-.rechart-box {
+.echart-box {
   width: 100%;
   height: 320px;
   min-width: 0;
 
   &.compact { height: 280px; }
-
-  .recharts-wrapper,
-  .recharts-surface {
-    outline: none;
-  }
-
-  .recharts-cartesian-axis-tick-value,
-  .recharts-legend-item-text {
-    fill: @muted;
-    color: @muted !important;
-    font-size: 12px;
-  }
-}
-
-.rechart-pie-layout {
-  min-width: 0;
-}
-
-.chart-skeleton {
-  width: 100%;
-  height: 100%;
-  border-radius: @radius-lg;
-  background: linear-gradient(90deg, #f3f6fb, #e9f0fa, #f3f6fb);
-}
-
-.chart-tooltip {
-  display: grid;
-  gap: 7px;
-  min-width: 150px;
-  padding: 10px 12px;
-  border: 1px solid rgba(219,227,239,0.96);
-  border-radius: @radius-lg;
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 14px 34px rgba(24,32,51,0.14);
-
-  strong {
-    color: @text;
-    font-size: 13px;
-  }
-
-  p {
-    display: grid;
-    grid-template-columns: 10px 1fr auto;
-    align-items: center;
-    gap: 8px;
-    color: @muted;
-    font-size: 12px;
-  }
-
-  i {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-  }
-
-  em {
-    color: @text;
-    font-style: normal;
-    font-weight: 700;
-  }
 }
 
 // ── Chip 标签 ─────────────────────────────────────
@@ -645,6 +585,14 @@ button {
     grid-column: auto;
     flex-direction: column-reverse;
   }
+}
+
+.detail-list {
+  display: grid;
+  gap: 10px;
+  max-height: min(62vh, 620px);
+  overflow: auto;
+  padding-right: 4px;
 }
 
 // ── 车票 ─────────────────────────────────────────

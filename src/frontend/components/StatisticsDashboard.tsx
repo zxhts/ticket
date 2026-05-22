@@ -1,23 +1,21 @@
 "use client";
 
 import React from "react";
+import { Modal } from "antd";
+import * as echarts from "echarts/core";
+import type { EChartsCoreOption } from "echarts/core";
+import { BarChart, LineChart, PieChart } from "echarts/charts";
 import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  Legend,
-  Line,
-  LineChart,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TransformComponent,
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
 import type { TravelRecord } from "@/src/backend/types/travel";
 import { fmtMoney, getStats } from "@/src/frontend/utils/travel";
+
+echarts.use([BarChart, LineChart, PieChart, GridComponent, LegendComponent, TooltipComponent, TransformComponent, CanvasRenderer]);
 
 type Props = {
   records: TravelRecord[];
@@ -26,13 +24,30 @@ type Props = {
 type ChartPoint = {
   label: string;
   value: number;
-  extra?: number;
 };
 
-const chartColors = ["#1f6feb", "#0f9d74", "#f59e0b", "#ef4444", "#7c3aed", "#0891b2", "#64748b"];
+type ChartClickParams = {
+  name?: string;
+  seriesName?: string;
+  dataIndex?: number;
+};
+
+type DetailState = {
+  title: string;
+  records: TravelRecord[];
+} | null;
+
+const chartColors = ["#38bdf8", "#2563eb", "#14b8a6", "#6366f1", "#0ea5e9", "#1d4ed8", "#0891b2"];
+const axisStyle = {
+  axisLine: { lineStyle: { color: "rgba(97,163,255,0.28)" } },
+  axisLabel: { color: "#667085" },
+  axisTick: { show: false },
+};
+const splitLineStyle = { lineStyle: { color: "rgba(97,163,255,0.16)", type: "dashed" } };
 
 export default function StatisticsDashboard({ records }: Props) {
   const [selectedYear, setSelectedYear] = React.useState("全部");
+  const [detailState, setDetailState] = React.useState<DetailState>(null);
   const sortedRecords = React.useMemo(
     () => [...records].sort((a, b) => b.date.localeCompare(a.date)),
     [records],
@@ -50,7 +65,7 @@ export default function StatisticsDashboard({ records }: Props) {
   );
   const stats = React.useMemo(() => getStats(filteredRecords), [filteredRecords]);
   const yearlySeries = React.useMemo(() => getYearlySeries(sortedRecords), [sortedRecords]);
-  const fareTrend = React.useMemo(() => getFareTrend(yearlySeries), [yearlySeries]);
+  const yearlyFareTrend = React.useMemo(() => getYearlyFareTrend(yearlySeries), [yearlySeries]);
   const seatDistribution = React.useMemo(() => getCountSeries(filteredRecords, (record) => record.seat), [filteredRecords]);
   const trainTypeDistribution = React.useMemo(
     () => getCountSeries(filteredRecords, (record) => getTrainType(record.train)),
@@ -97,77 +112,79 @@ export default function StatisticsDashboard({ records }: Props) {
 
       <section className="panel chart-panel dashboard-wide">
         <ChartHead title="年度出行柱状图" desc={years.length ? `${years[0]} - ${years[years.length - 1]}` : "暂无记录"} />
-        <ChartBox>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={yearlySeries} margin={{ top: 12, right: 18, left: 0, bottom: 0 }}>
-              <CartesianGrid stroke="#e7eef8" strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="year" tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} allowDecimals={false} />
-              <Tooltip content={<DashboardTooltip moneyKeys={["fare"]} />} />
-              <Legend />
-              <Bar dataKey="count" name="出行次数" fill="#1f6feb" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="fare" name="年度票价" fill="#0f9d74" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartBox>
+        <EChart
+          option={getYearlyOption(yearlySeries)}
+          onChartClick={(params) => {
+            const year = String(params.name || "");
+            openDetails(`${year} 年${params.seriesName || "出行"}明细`, sortedRecords.filter((record) => record.date.startsWith(year)));
+          }}
+        />
       </section>
 
       <section className="panel chart-panel dashboard-wide">
-        <ChartHead title="累计票价趋势" desc="按年份累加" />
-        <ChartBox>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={fareTrend} margin={{ top: 12, right: 18, left: 0, bottom: 0 }}>
-              <CartesianGrid stroke="#e7eef8" strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="label" tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} tickFormatter={(value) => `¥${value}`} />
-              <Tooltip content={<DashboardTooltip moneyKeys={["value"]} />} />
-              <Line
-                type="monotone"
-                dataKey="value"
-                name="累计票价"
-                stroke="#1f6feb"
-                strokeWidth={3}
-                dot={{ r: 4, strokeWidth: 2, fill: "#fff" }}
-                activeDot={{ r: 7 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </ChartBox>
+        <ChartHead title="年度票价趋势" desc="按单年合计" />
+        <EChart
+          option={getFareTrendOption(yearlyFareTrend)}
+          onChartClick={(params) => {
+            const year = String(params.name || "");
+            openDetails(`${year} 年票价明细`, sortedRecords.filter((record) => record.date.startsWith(year)));
+          }}
+        />
       </section>
 
       <section className="panel chart-panel">
         <ChartHead title="席别占比" desc={`${filteredRecords.length} 条`} />
-        <PiePanel points={seatDistribution} />
+        <EChart
+          option={getPieOption(seatDistribution, "席别")}
+          compact
+          onChartClick={(params) =>
+            openDetails(`${params.name || "席别"}明细`, filteredRecords.filter((record) => record.seat === params.name))
+          }
+        />
       </section>
 
       <section className="panel chart-panel">
         <ChartHead title="车次类型占比" desc="G/D/C/Z/T/K/其他" />
-        <PiePanel points={trainTypeDistribution} />
+        <EChart
+          option={getPieOption(trainTypeDistribution, "车次类型")}
+          compact
+          onChartClick={(params) =>
+            openDetails(`${params.name || "车次类型"}明细`, filteredRecords.filter((record) => getTrainType(record.train) === params.name))
+          }
+        />
       </section>
 
       <section className="panel chart-panel">
         <ChartHead title="热门到达车站" desc="Top 8" />
-        <HorizontalBars points={arrivalStations} />
+        <EChart
+          option={getRankOption(arrivalStations, "#1f6feb")}
+          compact
+          onChartClick={(params) =>
+            openDetails(`到达 ${params.name || "车站"} 明细`, filteredRecords.filter((record) => record.to === params.name))
+          }
+        />
       </section>
 
       <section className="panel chart-panel">
         <ChartHead title="热门到达城市" desc="Top 8" />
-        <HorizontalBars points={cities} color="#0f9d74" />
+        <EChart
+          option={getRankOption(cities, "#0f9d74")}
+          compact
+          onChartClick={(params) =>
+            openDetails(`到达 ${params.name || "城市"} 明细`, filteredRecords.filter((record) => normalizeCity(record.to) === params.name))
+          }
+        />
       </section>
 
       <section className="panel chart-panel dashboard-wide">
         <ChartHead title="高频线路" desc="Top 8" />
-        <ChartBox compact>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={topRoutes} layout="vertical" margin={{ top: 8, right: 24, left: 70, bottom: 0 }}>
-              <CartesianGrid stroke="#e7eef8" strokeDasharray="3 3" horizontal={false} />
-              <XAxis type="number" tickLine={false} axisLine={false} allowDecimals={false} />
-              <YAxis type="category" dataKey="label" tickLine={false} axisLine={false} width={120} />
-              <Tooltip content={<DashboardTooltip />} />
-              <Bar dataKey="value" name="出行次数" fill="#1f6feb" radius={[0, 8, 8, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartBox>
+        <EChart
+          option={getRankOption(topRoutes, "#1f6feb", 120)}
+          compact
+          onChartClick={(params) =>
+            openDetails(`${params.name || "线路"}明细`, filteredRecords.filter((record) => `${record.from} → ${record.to}` === params.name))
+          }
+        />
       </section>
 
       <section className="panel list-panel recent-panel">
@@ -192,8 +209,69 @@ export default function StatisticsDashboard({ records }: Props) {
           ))}
         </div>
       </section>
+
+      <Modal
+        title={detailState ? `${detailState.title}（${detailState.records.length} 条）` : "明细"}
+        open={Boolean(detailState)}
+        onCancel={() => setDetailState(null)}
+        footer={null}
+        width={820}
+      >
+        <div className="detail-list">
+          {detailState?.records.map((record) => (
+            <article className="record" key={record.id}>
+              <div>
+                <strong>
+                  {record.from} → {record.to}
+                </strong>
+                <div className="meta">{getRecordMeta(record)}</div>
+              </div>
+              <div className="price">{fmtMoney(record.fare)}</div>
+            </article>
+          ))}
+        </div>
+      </Modal>
     </div>
   );
+
+  function openDetails(title: string, nextRecords: TravelRecord[]) {
+    setDetailState({
+      title,
+      records: [...nextRecords].sort((a, b) => b.date.localeCompare(a.date)),
+    });
+  }
+}
+
+function EChart({
+  option,
+  compact = false,
+  onChartClick,
+}: {
+  option: EChartsCoreOption;
+  compact?: boolean;
+  onChartClick?: (params: ChartClickParams) => void;
+}) {
+  const chartRef = React.useRef<HTMLDivElement | null>(null);
+  const clickRef = React.useRef(onChartClick);
+
+  clickRef.current = onChartClick;
+
+  React.useEffect(() => {
+    if (!chartRef.current) return;
+    const chart = echarts.init(chartRef.current);
+    chart.setOption(option, true);
+    chart.on("click", (params) => clickRef.current?.(params as ChartClickParams));
+
+    const resize = () => chart.resize();
+    window.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      chart.off("click");
+      chart.dispose();
+    };
+  }, [option]);
+
+  return <div className={`echart-box${compact ? " compact" : ""}`} ref={chartRef} />;
 }
 
 function ChartHead({ title, desc }: { title: string; desc: string }) {
@@ -205,81 +283,181 @@ function ChartHead({ title, desc }: { title: string; desc: string }) {
   );
 }
 
-function ChartBox({ children, compact = false }: { children: React.ReactNode; compact?: boolean }) {
-  const [ready, setReady] = React.useState(false);
-
-  React.useEffect(() => {
-    setReady(true);
-  }, []);
-
-  return <div className={`rechart-box${compact ? " compact" : ""}`}>{ready ? children : <div className="chart-skeleton" />}</div>;
+function getBaseTooltip() {
+  return {
+    trigger: "axis",
+    backgroundColor: "rgba(6,18,42,0.94)",
+    borderColor: "rgba(56,189,248,0.34)",
+    borderWidth: 1,
+    textStyle: { color: "#eef6ff" },
+    extraCssText: "box-shadow:0 16px 36px rgba(0,32,82,0.28);border-radius:10px;backdrop-filter:blur(8px);",
+  };
 }
 
-function PiePanel({ points }: { points: ChartPoint[] }) {
-  return (
-    <div className="rechart-pie-layout">
-      <ChartBox compact>
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={points} dataKey="value" nameKey="label" innerRadius={54} outerRadius={86} paddingAngle={2}>
-              {points.map((point, index) => (
-                <Cell key={point.label} fill={chartColors[index % chartColors.length]} />
-              ))}
-            </Pie>
-            <Tooltip content={<DashboardTooltip />} />
-            <Legend verticalAlign="bottom" height={32} />
-          </PieChart>
-        </ResponsiveContainer>
-      </ChartBox>
-    </div>
-  );
+function getYearlyOption(series: ReturnType<typeof getYearlySeries>): EChartsCoreOption {
+  return {
+    backgroundColor: "rgba(5,18,45,0.03)",
+    color: ["#2563eb", "#10b981"],
+    tooltip: {
+      ...getBaseTooltip(),
+      valueFormatter: (value: number | string) => (typeof value === "number" && value > 100 ? fmtMoney(value) : `${value}`),
+    },
+    legend: {
+      top: 0,
+      icon: "circle",
+      itemWidth: 10,
+      itemHeight: 10,
+      selectedMode: true,
+      textStyle: { color: "#667085" },
+    },
+    grid: { top: 48, right: 18, bottom: 28, left: 48 },
+    xAxis: { type: "category", data: series.map((item) => item.year), ...axisStyle },
+    yAxis: { type: "value", ...axisStyle, splitLine: splitLineStyle },
+    series: [
+      {
+        name: "出行次数",
+        type: "bar",
+        data: series.map((item) => item.count),
+        barMaxWidth: 34,
+        itemStyle: {
+          borderRadius: [5, 5, 0, 0],
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#60a5fa" },
+            { offset: 1, color: "#1d4ed8" },
+          ]),
+          shadowBlur: 10,
+          shadowColor: "rgba(37,99,235,0.26)",
+        },
+        emphasis: { focus: "series" },
+      },
+      {
+        name: "年度票价",
+        type: "bar",
+        data: series.map((item) => item.fare),
+        barMaxWidth: 34,
+        itemStyle: {
+          borderRadius: [5, 5, 0, 0],
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#34d399" },
+            { offset: 1, color: "#059669" },
+          ]),
+          shadowBlur: 10,
+          shadowColor: "rgba(16,185,129,0.24)",
+        },
+        emphasis: { focus: "series" },
+      },
+    ],
+  };
 }
 
-function HorizontalBars({ points, color = "#1f6feb" }: { points: ChartPoint[]; color?: string }) {
-  return (
-    <ChartBox compact>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={points} layout="vertical" margin={{ top: 8, right: 24, left: 48, bottom: 0 }}>
-          <CartesianGrid stroke="#e7eef8" strokeDasharray="3 3" horizontal={false} />
-          <XAxis type="number" tickLine={false} axisLine={false} allowDecimals={false} />
-          <YAxis type="category" dataKey="label" tickLine={false} axisLine={false} width={88} />
-          <Tooltip content={<DashboardTooltip />} />
-          <Bar dataKey="value" name="出行次数" fill={color} radius={[0, 8, 8, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
-    </ChartBox>
-  );
+function getFareTrendOption(points: ChartPoint[]): EChartsCoreOption {
+  return {
+    color: ["#38bdf8"],
+    tooltip: {
+      ...getBaseTooltip(),
+      valueFormatter: (value: number | string) => (typeof value === "number" ? fmtMoney(value) : `${value}`),
+    },
+    grid: { top: 24, right: 18, bottom: 28, left: 62 },
+    xAxis: { type: "category", data: points.map((item) => item.label), ...axisStyle },
+    yAxis: {
+      type: "value",
+      ...axisStyle,
+      axisLabel: { formatter: (value: number) => `¥${value}` },
+      splitLine: splitLineStyle,
+    },
+    series: [
+      {
+        name: "年度票价",
+        type: "line",
+        data: points.map((item) => item.value),
+        smooth: true,
+        symbolSize: 9,
+        lineStyle: { width: 3, shadowBlur: 10, shadowColor: "rgba(56,189,248,0.32)" },
+        itemStyle: { color: "#38bdf8", borderColor: "#ffffff", borderWidth: 2 },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "rgba(56,189,248,0.20)" },
+            { offset: 1, color: "rgba(15,23,42,0.02)" },
+          ]),
+        },
+        emphasis: { focus: "series" },
+      },
+    ],
+  };
 }
 
-function DashboardTooltip({
-  active,
-  payload,
-  label,
-  moneyKeys = [],
-}: {
-  active?: boolean;
-  payload?: Array<{ dataKey?: string | number; name?: string; value?: number | string; color?: string }>;
-  label?: string;
-  moneyKeys?: string[];
-}) {
-  if (!active || !payload?.length) return null;
+function getPieOption(points: ChartPoint[], name: string): EChartsCoreOption {
+  return {
+    color: chartColors,
+    tooltip: {
+      trigger: "item",
+      formatter: "{b}<br />{a}: {c} ({d}%)",
+      backgroundColor: "rgba(6,18,42,0.94)",
+      borderColor: "rgba(56,189,248,0.34)",
+      borderWidth: 1,
+      textStyle: { color: "#eef6ff" },
+      extraCssText: "box-shadow:0 16px 36px rgba(0,32,82,0.28);border-radius:10px;backdrop-filter:blur(8px);",
+    },
+    legend: {
+      bottom: 0,
+      type: "scroll",
+      icon: "circle",
+      itemWidth: 10,
+      itemHeight: 10,
+      selectedMode: true,
+      textStyle: { color: "#667085" },
+    },
+    series: [
+      {
+        name,
+        type: "pie",
+        radius: ["28%", "68%"],
+        center: ["50%", "44%"],
+        data: points.map((item) => ({ name: item.label, value: item.value })),
+        avoidLabelOverlap: true,
+        itemStyle: {
+          borderColor: "#ffffff",
+          borderWidth: 1,
+        },
+        emphasis: { scale: true, scaleSize: 8 },
+      },
+    ],
+  };
+}
 
-  return (
-    <div className="chart-tooltip">
-      <strong>{label}</strong>
-      {payload.map((item) => {
-        const dataKey = String(item.dataKey || "");
-        const value = typeof item.value === "number" && moneyKeys.includes(dataKey) ? fmtMoney(item.value) : item.value;
-        return (
-          <p key={`${item.name}-${dataKey}`}>
-            <i style={{ background: item.color }} />
-            <span>{item.name}</span>
-            <em>{value}</em>
-          </p>
-        );
-      })}
-    </div>
-  );
+function getRankOption(points: ChartPoint[], color: string, labelWidth = 88): EChartsCoreOption {
+  const ordered = [...points].reverse();
+
+  return {
+    color: [color],
+    tooltip: getBaseTooltip(),
+    grid: { top: 8, right: 24, bottom: 18, left: labelWidth },
+    xAxis: { type: "value", ...axisStyle, splitLine: splitLineStyle },
+    yAxis: {
+      type: "category",
+      data: ordered.map((item) => item.label),
+      ...axisStyle,
+      axisLabel: { overflow: "truncate", width: labelWidth - 12 },
+    },
+    series: [
+      {
+        name: "出行次数",
+        type: "bar",
+        data: ordered.map((item) => item.value),
+        barMaxWidth: 18,
+        itemStyle: {
+          borderRadius: [0, 5, 5, 0],
+          color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+            { offset: 0, color: `${color}66` },
+            { offset: 1, color },
+          ]),
+          shadowBlur: 10,
+          shadowColor: `${color}44`,
+        },
+        emphasis: { focus: "series" },
+      },
+    ],
+  };
 }
 
 function getYearlySeries(records: TravelRecord[]) {
@@ -296,12 +474,8 @@ function getYearlySeries(records: TravelRecord[]) {
     .map(([year, value]) => ({ year, count: value.count, fare: Number(value.fare.toFixed(1)) }));
 }
 
-function getFareTrend(series: ReturnType<typeof getYearlySeries>): ChartPoint[] {
-  let total = 0;
-  return series.map((item) => {
-    total += item.fare;
-    return { label: item.year, value: Number(total.toFixed(1)) };
-  });
+function getYearlyFareTrend(series: ReturnType<typeof getYearlySeries>): ChartPoint[] {
+  return series.map((item) => ({ label: item.year, value: item.fare }));
 }
 
 function getCountSeries(records: TravelRecord[], getKey: (record: TravelRecord) => string): ChartPoint[] {
