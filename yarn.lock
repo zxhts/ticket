@@ -663,6 +663,11 @@
   dependencies:
     tslib "^2.8.0"
 
+"@types/less@^3.0.8":
+  version "3.0.8"
+  resolved "https://npmmirror.rd.chanjet.com/@types/less/-/less-3.0.8.tgz#c97ddd0b7bab6b7738a06a4ae85848f361fc5cbb"
+  integrity sha512-Gjm4+H9noDJgu5EdT3rUw5MhPBag46fiOy27BefvWkNL8mlZnKnCaVVVTLKj6RYXed9b62CPKnPav9govyQDzA==
+
 "@types/node@^24.10.1":
   version "24.12.4"
   resolved "https://npmmirror.rd.chanjet.com/@types/node/-/node-24.12.4.tgz#2709745569811dcbdc57c097fafdd387c6330382"
@@ -760,6 +765,13 @@ compute-scroll-into-view@^3.0.2:
   resolved "https://npmmirror.rd.chanjet.com/compute-scroll-into-view/-/compute-scroll-into-view-3.1.1.tgz#02c3386ec531fb6a9881967388e53e8564f3e9aa"
   integrity sha512-VRhuHOLoKYOy4UbilLbUzbYg93XLjv2PncJC50EuTWPA3gaja1UjBsUP/D/9/juV3vQFr6XBEzn9KCAHdUvOHw==
 
+copy-anything@^3.0.5:
+  version "3.0.5"
+  resolved "https://npmmirror.rd.chanjet.com/copy-anything/-/copy-anything-3.0.5.tgz#2d92dce8c498f790fa7ad16b01a1ae5a45b020a0"
+  integrity sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==
+  dependencies:
+    is-what "^4.1.8"
+
 csstype@^3.1.3, csstype@^3.2.2:
   version "3.2.3"
   resolved "https://npmmirror.rd.chanjet.com/csstype/-/csstype-3.2.3.tgz#ec48c0f3e993e50648c86da559e2610995cf989a"
@@ -775,10 +787,39 @@ detect-libc@^2.1.2:
   resolved "https://npmmirror.rd.chanjet.com/detect-libc/-/detect-libc-2.1.2.tgz#689c5dcdc1900ef5583a4cb9f6d7b473742074ad"
   integrity sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==
 
+errno@^0.1.1:
+  version "0.1.8"
+  resolved "https://npmmirror.rd.chanjet.com/errno/-/errno-0.1.8.tgz#8bb3e9c7d463be4976ff888f76b4809ebc2e811f"
+  integrity sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==
+  dependencies:
+    prr "~1.0.1"
+
+graceful-fs@^4.1.2:
+  version "4.2.11"
+  resolved "https://npmmirror.rd.chanjet.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
+  integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
+
+iconv-lite@^0.6.3:
+  version "0.6.3"
+  resolved "https://npmmirror.rd.chanjet.com/iconv-lite/-/iconv-lite-0.6.3.tgz#a52f80bf38da1952eb5c681790719871a1a72501"
+  integrity sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3.0.0"
+
+image-size@~0.5.0:
+  version "0.5.5"
+  resolved "https://npmmirror.rd.chanjet.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
+  integrity sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==
+
 is-mobile@^5.0.0:
   version "5.0.0"
   resolved "https://npmmirror.rd.chanjet.com/is-mobile/-/is-mobile-5.0.0.tgz#1e08a0ef2c38a67bff84a52af68d67bcef445333"
   integrity sha512-Tz/yndySvLAEXh+Uk8liFCxOwVH6YutuR74utvOcu7I9Di+DwM0mtdPVZNaVvvBUM2OXxne/NhOs1zAO7riusQ==
+
+is-what@^4.1.8:
+  version "4.1.16"
+  resolved "https://npmmirror.rd.chanjet.com/is-what/-/is-what-4.1.16.tgz#1ad860a19da8b4895ad5495da3182ce2acdd7a6f"
+  integrity sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==
 
 json2mq@^0.2.0:
   version "0.2.0"
@@ -787,10 +828,54 @@ json2mq@^0.2.0:
   dependencies:
     string-convert "^0.2.0"
 
+less-loader@^13.0.0:
+  version "13.0.0"
+  resolved "https://npmmirror.rd.chanjet.com/less-loader/-/less-loader-13.0.0.tgz#07cbd3dafab18c0fab342874b440861a59fd5029"
+  integrity sha512-TIa8d6znKH634Mg+7OU3jevZT6KeOhh0amW+YeMPD0GM9buUn5Y7HvtyCR5pUDdLaFfqLA8AX5PTSIHMNSexEA==
+  dependencies:
+    "@types/less" "^3.0.8"
+
+less@^4.6.4:
+  version "4.6.4"
+  resolved "https://npmmirror.rd.chanjet.com/less/-/less-4.6.4.tgz#3ff8068e6c8a59f1ece8a6b9227bda28c1ed68a2"
+  integrity sha512-OJmO5+HxZLLw0RLzkqaNHzcgEAQG7C0y3aMbwtCzIUFZsLMNNq/1IdAdHEycQ58CwUO3jPTHmoN+tE5I7FQxNg==
+  dependencies:
+    copy-anything "^3.0.5"
+    parse-node-version "^1.0.1"
+  optionalDependencies:
+    errno "^0.1.1"
+    graceful-fs "^4.1.2"
+    image-size "~0.5.0"
+    make-dir "^2.1.0"
+    mime "^1.4.1"
+    needle "^3.1.0"
+    source-map "~0.6.0"
+
+make-dir@^2.1.0:
+  version "2.1.0"
+  resolved "https://npmmirror.rd.chanjet.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
+  integrity sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==
+  dependencies:
+    pify "^4.0.1"
+    semver "^5.6.0"
+
+mime@^1.4.1:
+  version "1.6.0"
+  resolved "https://npmmirror.rd.chanjet.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+  integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+
 nanoid@^3.3.6:
   version "3.3.12"
   resolved "https://npmmirror.rd.chanjet.com/nanoid/-/nanoid-3.3.12.tgz#ab3d912e217a6d0a514f00a72a16543a28982c05"
   integrity sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==
+
+needle@^3.1.0:
+  version "3.5.0"
+  resolved "https://npmmirror.rd.chanjet.com/needle/-/needle-3.5.0.tgz#aa2023642cb41b11a11babb733fd8fa952919112"
+  integrity sha512-jaQyPKKk2YokHrEg+vFDYxXIHTCBgiZwSHOoVx/8V3GIBS8/VN6NdVRmg8q1ERtPkMvmOvebsgga4sAj5hls/w==
+  dependencies:
+    iconv-lite "^0.6.3"
+    sax "^1.2.4"
 
 next@^16.0.7:
   version "16.2.6"
@@ -814,10 +899,20 @@ next@^16.0.7:
     "@next/swc-win32-x64-msvc" "16.2.6"
     sharp "^0.34.5"
 
+parse-node-version@^1.0.1:
+  version "1.0.1"
+  resolved "https://npmmirror.rd.chanjet.com/parse-node-version/-/parse-node-version-1.0.1.tgz#e2b5dbede00e7fa9bc363607f53327e8b073189b"
+  integrity sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA==
+
 picocolors@^1.0.0:
   version "1.1.1"
   resolved "https://npmmirror.rd.chanjet.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
+
+pify@^4.0.1:
+  version "4.0.1"
+  resolved "https://npmmirror.rd.chanjet.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
+  integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
 postcss@8.4.31:
   version "8.4.31"
@@ -827,6 +922,11 @@ postcss@8.4.31:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+prr@~1.0.1:
+  version "1.0.1"
+  resolved "https://npmmirror.rd.chanjet.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
+  integrity sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==
 
 react-dom@^19.2.1:
   version "19.2.6"
@@ -845,6 +945,16 @@ react@^19.2.1:
   resolved "https://npmmirror.rd.chanjet.com/react/-/react-19.2.6.tgz#3dadb8e12b2a7934c1d5317973e5dce1301f9a4d"
   integrity sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==
 
+"safer-buffer@>= 2.1.2 < 3.0.0":
+  version "2.1.2"
+  resolved "https://npmmirror.rd.chanjet.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
+  integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+sax@^1.2.4:
+  version "1.6.0"
+  resolved "https://npmmirror.rd.chanjet.com/sax/-/sax-1.6.0.tgz#da59637629307b97e7c4cb28e080a7bc38560d5b"
+  integrity sha512-6R3J5M4AcbtLUdZmRv2SygeVaM7IhrLXu9BmnOGmmACak8fiUtOsYNWUS4uK7upbmHIBbLBeFeI//477BKLBzA==
+
 scheduler@^0.27.0:
   version "0.27.0"
   resolved "https://npmmirror.rd.chanjet.com/scheduler/-/scheduler-0.27.0.tgz#0c4ef82d67d1e5c1e359e8fc76d3a87f045fe5bd"
@@ -856,6 +966,11 @@ scroll-into-view-if-needed@^3.1.0:
   integrity sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==
   dependencies:
     compute-scroll-into-view "^3.0.2"
+
+semver@^5.6.0:
+  version "5.7.2"
+  resolved "https://npmmirror.rd.chanjet.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
+  integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
 semver@^7.7.3:
   version "7.8.1"
@@ -900,6 +1015,11 @@ source-map-js@^1.0.2:
   version "1.2.1"
   resolved "https://npmmirror.rd.chanjet.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
+
+source-map@~0.6.0:
+  version "0.6.1"
+  resolved "https://npmmirror.rd.chanjet.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 string-convert@^0.2.0:
   version "0.2.1"

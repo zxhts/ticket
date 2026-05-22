@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "antd/dist/reset.css";
-import "@/src/frontend/styles/styles.css";
+import "@/src/frontend/styles/styles.less";
 import AppProviders from "@/src/frontend/components/AppProviders";
 
 export const metadata: Metadata = {
