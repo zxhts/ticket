@@ -1,4 +1,12 @@
-export type SeatType = "二等座" | "一等座" | "商务座" | "硬座" | "硬卧" | "软卧";
+export type SeatType =
+  | "二等座"
+  | "一等座"
+  | "商务座"
+  | "硬座"
+  | "硬卧"
+  | "软卧"
+  | "动卧"
+  | "硬卧代硬座"
 
 export type TravelRecord = {
   id: string;
@@ -7,8 +15,10 @@ export type TravelRecord = {
   from: string;
   to: string;
   seat: SeatType;
+  seatNo?: string;
   fare: number;
-  duration: string;
+  duration?: string;
+  remark?: string;
 };
 
 export type DraftRecord = {
@@ -17,8 +27,9 @@ export type DraftRecord = {
   from: string;
   to: string;
   seat: SeatType;
+  seatNo: string;
   fare: string;
-  duration: string;
+  remark: string;
 };
 
 export type ImportResult = {

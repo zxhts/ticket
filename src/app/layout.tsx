@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import "antd/dist/reset.css";
 import "@/src/frontend/styles/styles.css";
+import AppProviders from "@/src/frontend/components/AppProviders";
 
 export const metadata: Metadata = {
   title: "火车乘坐记录与车票生成器",
@@ -9,7 +11,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      <body>
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   );
 }

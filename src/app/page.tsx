@@ -1,8 +1,5 @@
-import TicketDashboard from "@/src/frontend/components/TicketDashboard";
-import { readRecords } from "@/src/backend/lib/recordStore";
+import { redirect } from "next/navigation";
 
-export default async function Home() {
-  const records = await readRecords();
-
-  return <TicketDashboard initialRecords={records} />;
+export default function Home() {
+  redirect("/statistics");
 }

@@ -1,9 +1,18 @@
 import type { ImportParseResult, SeatType, TravelRecord } from "@/src/backend/types/travel";
 
-export const seatOptions: SeatType[] = ["二等座", "一等座", "商务座", "硬座", "硬卧", "软卧"];
+export const seatOptions: SeatType[] = [
+  "二等座",
+  "一等座",
+  "商务座",
+  "硬座",
+  "硬卧",
+  "软卧",
+  "动卧",
+  "硬卧代硬座",
+];
 
 export function fmtMoney(value: number) {
-  return `¥${value.toFixed(1).replace(/\.0$/, "")}`;
+  return `¥${value.toFixed(1)}`;
 }
 
 export function getStats(records: TravelRecord[]) {
@@ -72,8 +81,10 @@ export function normalizeRecord(item: unknown, index: number): TravelRecord | nu
     from: record.from,
     to: record.to,
     seat: seatOptions.includes(record.seat) ? record.seat : "二等座",
-    fare: record.fare,
-    duration: record.duration || "未填写",
+    seatNo: record.seatNo || "",
+    fare: Number(record.fare.toFixed(1)),
+    duration: record.duration,
+    remark: record.remark || "",
   };
 }
 
@@ -99,8 +110,10 @@ function getHeaderMap(cells: string[]) {
     if (/出发|起点|from/.test(key)) map.from = index;
     if (/到达|终点|目的|to/.test(key)) map.to = index;
     if (/席别|座位|坐席|seat/.test(key)) map.seat = index;
+    if (/座位号|座号|座位编号|seatno|seatnumber/.test(key)) map.seatNo = index;
     if (/票价|价格|金额|fare|price/.test(key)) map.fare = index;
     if (/用时|历时|时长|duration/.test(key)) map.duration = index;
+    if (/备注|说明|note|remark/.test(key)) map.remark = index;
   });
   return hasColumn(map.date) && hasColumn(map.train) && hasColumn(map.from) && hasColumn(map.to) ? map : null;
 }
@@ -117,8 +130,10 @@ function parseImportCells(
         from: getMappedCell(cells, headerMap.from),
         to: getMappedCell(cells, headerMap.to),
         seat: getMappedCell(cells, headerMap.seat),
+        seatNo: getMappedCell(cells, headerMap.seatNo),
         fare: getMappedCell(cells, headerMap.fare),
         duration: getMappedCell(cells, headerMap.duration),
+        remark: getMappedCell(cells, headerMap.remark),
       }
     : guessImportValues(cells);
   const date = normalizeDate(values.date);
@@ -136,8 +151,10 @@ function parseImportCells(
     from: values.from.trim(),
     to: values.to.trim(),
     seat,
-    fare,
-    duration: values.duration.trim() || "未填写",
+    seatNo: values.seatNo.trim(),
+    fare: Number(fare.toFixed(1)),
+    duration: values.duration.trim() || undefined,
+    remark: values.remark.trim(),
   };
 }
 
@@ -150,8 +167,9 @@ function guessImportValues(cells: string[]) {
   const trainIndex = cells.findIndex((cell) => /^[A-Z]?\d{1,5}[A-Z]?$/i.test(cell));
   const seatIndex = cells.findIndex((cell) => seatOptions.some((seat) => cell.includes(seat)));
   const fareIndex = cells.findIndex((cell) => /[¥￥元]|\d+\.\d+/.test(cell));
+  const seatNoIndex = cells.findIndex((cell) => /^[A-Z]?\d{1,2}[A-Z号]?$|^\d{1,2}[车-]\d{1,3}[A-Z号]?$/.test(cell));
   const durationIndex = cells.findIndex((cell) => /小时|分钟|分|^\d{1,2}:\d{2}$/.test(cell));
-  const used = new Set([dateIndex, trainIndex, seatIndex, fareIndex, durationIndex].filter((item) => item >= 0));
+  const used = new Set([dateIndex, trainIndex, seatIndex, seatNoIndex, fareIndex, durationIndex].filter((item) => item >= 0));
   const stationCells = cells.filter((_, index) => !used.has(index));
   const routeMatch = stationCells.join(" ").match(/(.+?)(?:->|→|-|至|到)(.+)/);
 
@@ -161,8 +179,10 @@ function guessImportValues(cells: string[]) {
     from: routeMatch ? routeMatch[1].trim() : stationCells[0] || cells[2] || "",
     to: routeMatch ? routeMatch[2].trim() : stationCells[1] || cells[3] || "",
     seat: cells[seatIndex] || "二等座",
+    seatNo: cells[seatNoIndex] || "",
     fare: cells[fareIndex] || "",
     duration: cells[durationIndex] || "",
+    remark: "",
   };
 }
 
@@ -171,10 +191,11 @@ function hasColumn(index: number | undefined) {
 }
 
 function normalizeDate(value: string) {
-  const match = value.match(/(\d{4})[./年-](\d{1,2})[./月-](\d{1,2})/);
+  const match = value.match(/(\d{4})[./年-](\d{1,2})[./月-](\d{1,2})(?:\D+(\d{1,2}):(\d{1,2}))?/);
   if (!match) return "";
-  const [, year, month, day] = match;
-  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  const [, year, month, day, hour, minute] = match;
+  const date = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  return hour && minute ? `${date} ${hour.padStart(2, "0")}:${minute.padStart(2, "0")}` : date;
 }
 
 function normalizeSeat(value: string): SeatType {

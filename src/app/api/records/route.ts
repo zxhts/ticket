@@ -29,8 +29,10 @@ function normalizeCreateBody(body: Partial<CreateRecordBody>): TravelRecord {
     from: body.from.trim(),
     to: body.to.trim(),
     seat: normalizeSeat(body.seat),
-    fare: body.fare,
-    duration: body.duration?.trim() || "未填写",
+    seatNo: body.seatNo?.trim() || "",
+    fare: Number(body.fare.toFixed(1)),
+    duration: body.duration?.trim() || undefined,
+    remark: body.remark?.trim() || "",
   };
 }
 
