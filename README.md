@@ -4,7 +4,7 @@
 
 ## 功能特性
 
-- **行程记录**：添加、删除火车出行记录（日期、车次、起终站、席别、票价、用时）
+- **行程记录**：添加、删除火车出行记录（日期、车次、起终站、席别、票价）
 - **批量导入**：支持从语雀等工具复制表格文本批量导入行程
 - **统计面板**：按年份筛选，展示行程数量、累计票价、线路数、高频年份
 - **年度分布图**：可视化各年乘车次数柱状图
@@ -28,7 +28,6 @@ ticket/
 │   │   │   ├── route.ts        # GET 查询 / POST 新增
 │   │   │   ├── [id]/           # DELETE 删除单条
 │   │   │   ├── import/         # POST 批量导入
-│   │   │   └── reset/          # POST 恢复初始数据
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── frontend/
@@ -77,19 +76,19 @@ yarn start
 | `POST`   | `/api/records`        | 新增一条行程     |
 | `DELETE` | `/api/records/:id`    | 删除指定行程     |
 | `POST`   | `/api/records/import` | 批量导入行程     |
-| `POST`   | `/api/records/reset`  | 恢复初始数据     |
 
 ## 数据格式
 
 每条行程记录包含以下字段：
 
-| 字段       | 类型   | 说明                                        |
-| ---------- | ------ | ------------------------------------------- |
-| `id`       | string | 唯一标识                                    |
-| `date`     | string | 乘车日期（YYYY-MM-DD）                      |
-| `train`    | string | 车次（如 G114）                             |
-| `from`     | string | 出发站                                      |
-| `to`       | string | 到达站                                      |
-| `seat`     | string | 席别（二等座/一等座/商务座/硬座/硬卧/软卧） |
-| `fare`     | number | 票价（元）                                  |
-| `duration` | string | 用时（如 4小时52分）                        |
+| 字段     | 类型   | 说明                                        |
+| -------- | ------ | ------------------------------------------- |
+| `id`     | string | 唯一标识                                    |
+| `date`   | string | 乘车日期（YYYY-MM-DD）                      |
+| `train`  | string | 车次（如 G114）                             |
+| `from`   | string | 出发站                                      |
+| `to`     | string | 到达站                                      |
+| `seat`   | string | 席别（二等座/一等座/商务座/硬座/硬卧/软卧） |
+| `seatNo` | string | 座位号（可选）                              |
+| `fare`   | number | 票价（元）                                  |
+| `remark` | string | 备注（可选）                                |

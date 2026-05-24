@@ -43,7 +43,6 @@ function normalizeUpdateBody(id: string, body: Partial<UpdateRecordBody>): Trave
     seat: normalizeSeat(body.seat),
     seatNo: body.seatNo?.trim() || "",
     fare: Number(body.fare.toFixed(1)),
-    duration: body.duration?.trim() || undefined,
     remark: body.remark?.trim() || "",
   };
 }

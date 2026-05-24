@@ -17,7 +17,6 @@ export type TravelRecord = {
   seat: SeatType;
   seatNo?: string;
   fare: number;
-  duration?: string;
   remark?: string;
 };
 

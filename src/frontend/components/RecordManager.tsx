@@ -122,11 +122,6 @@ export default function RecordManager({ initialRecords }: Props) {
     await refreshRecords();
   }
 
-  async function resetRecords() {
-    await fetchJson<{ count: number }>("/api/records/reset", { method: "POST" });
-    await refreshRecords();
-  }
-
   async function importRecords() {
     const result = await fetchJson<ImportResult>("/api/records/import", {
       method: "POST",
@@ -268,9 +263,6 @@ export default function RecordManager({ initialRecords }: Props) {
         </section>
 
         <div className="panel-actions">
-          <button className="ghost-btn" type="button" onClick={resetRecords}>
-            恢复全部记录
-          </button>
           <button className="primary-btn" type="button" onClick={() => window.print()}>
             打印车票
           </button>
