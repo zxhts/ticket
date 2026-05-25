@@ -217,6 +217,30 @@ export default function StatisticsDashboard({ records }: Props) {
             desc="个城市维度"
             onClick={() => openSummary("到达城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.to)))}
           />
+          <StatCard
+            label="出发城市"
+            value={String(new Set(filteredRecords.map((record) => normalizeCity(record.from))).size)}
+            desc="个城市维度"
+            onClick={() => openSummary("出发城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.from)))}
+          />
+          <StatCard
+            label="出发车站"
+            value={String(new Set(filteredRecords.map((record) => record.from)).size)}
+            desc="个车站"
+            onClick={() => openSummary("出发车站统计", getGroupedSummary(filteredRecords, (record) => record.from))}
+          />
+          <StatCard
+            label="到达车站"
+            value={String(new Set(filteredRecords.map((record) => record.to)).size)}
+            desc="个车站"
+            onClick={() => openSummary("到达车站统计", getGroupedSummary(filteredRecords, (record) => record.to))}
+          />
+          <StatCard
+            label="乘坐车次"
+            value={String(new Set(filteredRecords.map((record) => record.train)).size)}
+            desc="个不同车次"
+            onClick={() => openSummary("乘坐车次统计", getGroupedSummary(filteredRecords, (record) => record.train))}
+          />
         </div>
       </section>
 
