@@ -108,6 +108,8 @@ const splitLineStyle = { lineStyle: { color: "rgba(97,163,255,0.16)", type: "das
 export default function StatisticsDashboard({ records }: Props) {
   const [selectedYear, setSelectedYear] = React.useState("全部");
   const [detailStack, setDetailStack] = React.useState<DetailState[]>([]);
+  const detailScrollRef = React.useRef<number[]>([]);
+  const detailBodyRef = React.useRef<HTMLDivElement | null>(null);
   const sortedRecords = React.useMemo(
     () => [...records].sort((a, b) => b.date.localeCompare(a.date)),
     [records],
@@ -170,6 +172,11 @@ export default function StatisticsDashboard({ records }: Props) {
   const routeOption = React.useMemo(() => getRankOption(topRoutes, "#1f6feb", 120), [topRoutes]);
   const topFareOption = React.useMemo(() => getTopFareOption(topFareChartRecords), [topFareChartRecords]);
   const lowFareOption = React.useMemo(() => getTopFareOption(lowFareChartRecords), [lowFareChartRecords]);
+
+  React.useLayoutEffect(() => {
+    if (!detailState || !detailBodyRef.current) return;
+    detailBodyRef.current.scrollTop = detailScrollRef.current[detailStack.length - 1] ?? 0;
+  }, [detailState, detailStack.length]);
 
   return (
     <div className="dashboard-grid">
@@ -426,12 +433,15 @@ export default function StatisticsDashboard({ records }: Props) {
           ) : "明细"
         }
         open={Boolean(detailState)}
-        onCancel={() => setDetailStack([])}
+        onCancel={() => {
+          detailScrollRef.current = [];
+          setDetailStack([]);
+        }}
         footer={null}
         width={820}
       >
         {detailState?.summary ? (
-          <div className="summary-list">
+          <div className="summary-list" ref={detailBodyRef}>
             {detailState.summary.map((item) => (
               <article className="summary-row" key={item.label}>
                 <strong>{item.label}</strong>
@@ -446,7 +456,7 @@ export default function StatisticsDashboard({ records }: Props) {
             ))}
           </div>
         ) : (
-          <div className="detail-list">
+          <div className="detail-list" ref={detailBodyRef}>
             {detailState?.records.map((record) => (
               <article className="record" key={record.id}>
                 <div>
@@ -470,10 +480,23 @@ export default function StatisticsDashboard({ records }: Props) {
       records: [...nextRecords].sort((a, b) => b.date.localeCompare(a.date)),
     };
 
-    setDetailStack((current) => (current.length && current[current.length - 1]?.summary ? [...current, nextState] : [nextState]));
+    setDetailStack((current) => {
+      if (current.length) {
+        detailScrollRef.current[current.length - 1] = detailBodyRef.current?.scrollTop ?? 0;
+      }
+
+      if (current.length && current[current.length - 1]?.summary) {
+        detailScrollRef.current[current.length] = 0;
+        return [...current, nextState];
+      }
+
+      detailScrollRef.current = [0];
+      return [nextState];
+    });
   }
 
   function openSummary(title: string, summary: SummaryPoint[]) {
+    detailScrollRef.current = [0];
     setDetailStack([{
       title,
       records: [],
@@ -482,7 +505,12 @@ export default function StatisticsDashboard({ records }: Props) {
   }
 
   function goBack() {
-    setDetailStack((current) => current.slice(0, -1));
+    setDetailStack((current) => {
+      if (current.length) {
+        detailScrollRef.current[current.length - 1] = detailBodyRef.current?.scrollTop ?? 0;
+      }
+      return current.slice(0, -1);
+    });
   }
 }
 
