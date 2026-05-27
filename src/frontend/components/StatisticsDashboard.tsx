@@ -4,8 +4,9 @@ import React from "react";
 import { Modal } from "antd";
 import * as echarts from "echarts/core";
 import type { EChartsCoreOption } from "echarts/core";
-import { BarChart, LineChart, PieChart } from "echarts/charts";
+import { BarChart, EffectScatterChart, LineChart, MapChart, PieChart, ScatterChart } from "echarts/charts";
 import {
+  GeoComponent,
   GridComponent,
   LegendComponent,
   TooltipComponent,
@@ -15,7 +16,20 @@ import { CanvasRenderer } from "echarts/renderers";
 import type { TravelRecord } from "@/src/backend/types/travel";
 import { fmtMoney, getStats } from "@/src/frontend/utils/travel";
 
-echarts.use([BarChart, LineChart, PieChart, GridComponent, LegendComponent, TooltipComponent, TransformComponent, CanvasRenderer]);
+echarts.use([
+  BarChart,
+  EffectScatterChart,
+  LineChart,
+  MapChart,
+  PieChart,
+  ScatterChart,
+  GeoComponent,
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TransformComponent,
+  CanvasRenderer,
+]);
 
 type Props = {
   records: TravelRecord[];
@@ -30,10 +44,33 @@ type SummaryPoint = ChartPoint & {
   records: TravelRecord[];
 };
 
+type CityPoint = {
+  name: string;
+  value: [number, number, number];
+  records: TravelRecord[];
+};
+
+type CityArea = {
+  name: string;
+  adcode: string;
+  records: TravelRecord[];
+  value: number;
+};
+
+type RecentCityVisit = {
+  city: string;
+  date: string;
+};
+
 type ChartClickParams = {
   name?: string;
   seriesName?: string;
   dataIndex?: number;
+  data?: {
+    name?: string;
+    value?: number;
+    records?: TravelRecord[];
+  };
 };
 
 type DetailState = {
@@ -104,12 +141,72 @@ const axisStyle = {
   axisTick: { show: false },
 };
 const splitLineStyle = { lineStyle: { color: "rgba(97,163,255,0.16)", type: "dashed" } };
+const cityCoordinates: Record<string, [number, number]> = {
+  北京: [116.4074, 39.9042],
+  天津: [117.2000, 39.1333],
+  上海: [121.4737, 31.2304],
+  南京: [118.7969, 32.0603],
+  杭州: [120.1551, 30.2741],
+  成都: [104.0665, 30.5728],
+  重庆: [106.5516, 29.5630],
+  西安: [108.9398, 34.3416],
+  郑州: [113.6254, 34.7466],
+  廊坊: [116.6838, 39.5383],
+  张家口: [114.8841, 40.8119],
+  石家庄: [114.5149, 38.0428],
+  保定: [115.4646, 38.8744],
+  秦皇岛: [119.6005, 39.9354],
+  承德: [117.9392, 40.9739],
+  商丘: [115.6564, 34.4142],
+  徐州: [117.2841, 34.2058],
+  哈尔滨: [126.6424, 45.7560],
+  呼和浩特: [111.7492, 40.8426],
+  昆明: [102.8332, 24.8797],
+  大理: [100.2676, 25.6065],
+  青岛: [120.3826, 36.0671],
+  泰安: [117.0876, 36.2009],
+  菏泽: [115.4807, 35.2336],
+  长沙: [112.9388, 28.2282],
+  绵阳: [104.6796, 31.4675],
+};
+const cityAreaCodeMap: Record<string, { code: string; name: string; province: string }> = {
+  北京: { code: "110000", name: "北京市", province: "北京" },
+  天津: { code: "120000", name: "天津市", province: "天津" },
+  石家庄: { code: "130100", name: "石家庄市", province: "河北" },
+  唐山: { code: "130200", name: "唐山市", province: "河北" },
+  秦皇岛: { code: "130300", name: "秦皇岛市", province: "河北" },
+  保定: { code: "130600", name: "保定市", province: "河北" },
+  廊坊: { code: "131000", name: "廊坊市", province: "河北" },
+  张家口: { code: "130700", name: "张家口市", province: "河北" },
+  承德: { code: "130800", name: "承德市", province: "河北" },
+  上海: { code: "310000", name: "上海市", province: "上海" },
+  南京: { code: "320100", name: "南京市", province: "江苏" },
+  徐州: { code: "320300", name: "徐州市", province: "江苏" },
+  杭州: { code: "330100", name: "杭州市", province: "浙江" },
+  青岛: { code: "370200", name: "青岛市", province: "山东" },
+  泰安: { code: "370900", name: "泰安市", province: "山东" },
+  菏泽: { code: "371700", name: "菏泽市", province: "山东" },
+  济南: { code: "370100", name: "济南市", province: "山东" },
+  郑州: { code: "410100", name: "郑州市", province: "河南" },
+  商丘: { code: "411400", name: "商丘市", province: "河南" },
+  成都: { code: "510100", name: "成都市", province: "四川" },
+  绵阳: { code: "510700", name: "绵阳市", province: "四川" },
+  重庆: { code: "500000", name: "重庆市", province: "重庆" },
+  昆明: { code: "530100", name: "昆明市", province: "云南" },
+  大理: { code: "532900", name: "大理白族自治州", province: "云南" },
+  西安: { code: "610100", name: "西安市", province: "陕西" },
+  哈尔滨: { code: "230100", name: "哈尔滨市", province: "黑龙江" },
+  呼和浩特: { code: "150100", name: "呼和浩特市", province: "内蒙古" },
+  长沙: { code: "430100", name: "长沙市", province: "湖南" },
+  亳州: { code: "341600", name: "亳州市", province: "安徽" },
+};
 
 export default function StatisticsDashboard({ records }: Props) {
   const [selectedYear, setSelectedYear] = React.useState("全部");
   const [detailStack, setDetailStack] = React.useState<DetailState[]>([]);
   const detailScrollRef = React.useRef<number[]>([]);
   const detailBodyRef = React.useRef<HTMLDivElement | null>(null);
+  const [mapReady, setMapReady] = React.useState(false);
   const sortedRecords = React.useMemo(
     () => [...records].sort((a, b) => b.date.localeCompare(a.date)),
     [records],
@@ -172,6 +269,59 @@ export default function StatisticsDashboard({ records }: Props) {
   const routeOption = React.useMemo(() => getRankOption(topRoutes, "#1f6feb", 120), [topRoutes]);
   const topFareOption = React.useMemo(() => getTopFareOption(topFareChartRecords), [topFareChartRecords]);
   const lowFareOption = React.useMemo(() => getTopFareOption(lowFareChartRecords), [lowFareChartRecords]);
+  const visitedCitySummary = React.useMemo(() => getVisitedCitySummary(filteredRecords), [filteredRecords]);
+  const cityAreas = React.useMemo(() => getVisitedCityAreas(visitedCitySummary), [visitedCitySummary]);
+  const mapOption = React.useMemo(() => getTravelMapOption(cityAreas), [cityAreas]);
+  const mapStats = React.useMemo(() => getTravelMapStats(filteredRecords), [filteredRecords]);
+
+  React.useEffect(() => {
+    let active = true;
+    const provinceCodes = Array.from(
+      new Set(cityAreas.map((item) => getProvinceBoundaryCode(item.adcode))),
+    );
+    setMapReady(false);
+
+    Promise.all(
+      [
+        fetch("/maps/china-mainland.json").then((response) => {
+          if (!response.ok) throw new Error("Failed to load china map");
+          return response.json();
+        }),
+        fetch("/maps/south-china-sea.json").then((response) => {
+          if (!response.ok) throw new Error("Failed to load south china sea map");
+          return response.json();
+        }),
+        ...provinceCodes.map((code) =>
+          fetch(`/maps/admin/${code}_full.json`).then((response) => {
+            if (!response.ok) throw new Error(`Failed to load province map ${code}`);
+            return response.json();
+          }),
+        ),
+      ],
+    )
+      .then(([chinaGeoJson, southChinaSeaGeoJson, ...provinceMaps]) => {
+        const provinceFeatureMap = new Map<string, Record<string, unknown>>();
+        provinceMaps.forEach((geoJson, index) => {
+          provinceFeatureMap.set(provinceCodes[index], geoJson as Record<string, unknown>);
+        });
+
+        const featureCollection = buildTravelCityFeatureCollection(
+          cityAreas,
+          provinceFeatureMap,
+          chinaGeoJson as Record<string, unknown>,
+        );
+        echarts.registerMap("travel-mainland-city-map", featureCollection as never);
+        echarts.registerMap("south-china-sea-inset-map", southChinaSeaGeoJson as never);
+        if (active) setMapReady(true);
+      })
+      .catch(() => {
+        if (active) setMapReady(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [cityAreas]);
 
   React.useLayoutEffect(() => {
     if (!detailState || !detailBodyRef.current) return;
@@ -295,6 +445,50 @@ export default function StatisticsDashboard({ records }: Props) {
         />
       </section>
 
+      <section className="panel chart-panel dashboard-wide travel-map-panel">
+        <ChartHead title="到过的城市地图" desc="高亮显示" />
+        <div className="travel-map-stage">
+          {mapReady ? (
+            <EChart
+              option={mapOption}
+            mapChart
+            onChartClick={(params) => {
+              const city = String(params.name || "");
+              const pointRecords = params.data?.records;
+              if (!pointRecords?.length) return;
+              openDetails(`城市 ${city} 明细`, pointRecords);
+            }}
+          />
+          ) : (
+            <div className="map-loading">地图加载中...</div>
+          )}
+
+          <div className="travel-map-badge">城市模式</div>
+
+          <div className="travel-map-summary">
+            <p className="travel-map-caption">已点亮中国</p>
+            <div className="travel-map-value">
+              {mapStats.cityCount}
+              <span>个城市</span>
+            </div>
+            <div className="travel-map-meta">
+              <span>{filteredRecords.length} 条行程</span>
+              <span>{selectedYear === "全部" ? "全部年份" : `${selectedYear} 年`}</span>
+            </div>
+            <div className="travel-map-recent">
+              {mapStats.recentCities.map((item) => (
+                <div className="travel-map-recent-item" key={`${item.city}-${item.date}`}>
+                  <strong>{item.city}</strong>
+                  <span>{item.date.replaceAll("-", ".")}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {mapReady ? <EChart option={getSouthChinaSeaOption()} miniMap /> : null}
+      </section>
+
       <section className="panel chart-panel">
         <ChartHead title="车次类型占比" desc="G/D/C/Z/T/K/其他" />
         <EChart
@@ -405,8 +599,8 @@ export default function StatisticsDashboard({ records }: Props) {
           <div className="chip">{filteredRecords.length} 条</div>
         </div>
         <div className="record-list compact">
-          {filteredRecords.map((record) => (
-            <article className="record" key={record.id}>
+          {filteredRecords.map((record, index) => (
+            <article className="record" key={`${record.id}-${index}`}>
               <div>
                 <strong>
                   {record.from} → {record.to}
@@ -457,8 +651,8 @@ export default function StatisticsDashboard({ records }: Props) {
           </div>
         ) : (
           <div className="detail-list" ref={detailBodyRef}>
-            {detailState?.records.map((record) => (
-              <article className="record" key={record.id}>
+            {detailState?.records.map((record, index) => (
+              <article className="record" key={`${record.id}-${index}`}>
                 <div>
                   <strong>
                     {record.from} → {record.to}
@@ -517,10 +711,14 @@ export default function StatisticsDashboard({ records }: Props) {
 function EChart({
   option,
   compact = false,
+  mapChart = false,
+  miniMap = false,
   onChartClick,
 }: {
   option: EChartsCoreOption;
   compact?: boolean;
+  mapChart?: boolean;
+  miniMap?: boolean;
   onChartClick?: (params: ChartClickParams) => void;
 }) {
   const chartRef = React.useRef<HTMLDivElement | null>(null);
@@ -549,7 +747,7 @@ function EChart({
     instanceRef.current?.setOption(option, true);
   }, [option]);
 
-  return <div className={`echart-box${compact ? " compact" : ""}`} ref={chartRef} />;
+  return <div className={`echart-box${compact ? " compact" : ""}${mapChart ? " map" : ""}${miniMap ? " mini-map" : ""}`} ref={chartRef} />;
 }
 
 function ChartHead({ title, desc }: { title: string; desc: string }) {
@@ -792,6 +990,154 @@ function getTopFareOption(records: TravelRecord[]): EChartsCoreOption {
   };
 }
 
+function getTravelMapOption(cityAreas: CityArea[]): EChartsCoreOption {
+  return {
+    backgroundColor: "transparent",
+    tooltip: {
+      trigger: "item",
+      backgroundColor: "rgba(6,18,42,0.94)",
+      borderColor: "rgba(56,189,248,0.34)",
+      borderWidth: 1,
+      textStyle: { color: "#eef6ff" },
+      formatter: (params: { name?: string; data?: { records?: TravelRecord[]; value?: number } }) => {
+        if (!params.data?.records?.length) return "";
+        return `${params.name || ""}<br/>到达/出发记录：${params.data.value || params.data.records.length}`;
+      },
+    },
+    series: [
+      {
+        name: "到过的城市",
+        type: "map",
+        map: "travel-mainland-city-map",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        layoutCenter: ["55%", "52%"],
+        layoutSize: "94%",
+        roam: true,
+        selectedMode: false,
+        nameProperty: "name",
+        data: cityAreas.map((item) => ({
+          name: item.name,
+          value: item.value,
+          records: item.records,
+          itemStyle: {
+            areaColor: "rgba(56, 189, 248, 0.58)",
+            borderColor: "rgba(14, 165, 233, 0.95)",
+            borderWidth: 1.2,
+            shadowBlur: 18,
+            shadowColor: "rgba(14, 165, 233, 0.28)",
+          },
+          label: {
+            show: true,
+            color: "#0f172a",
+            fontSize: 12,
+            fontWeight: 600,
+            textBorderColor: "rgba(255, 255, 255, 0.88)",
+            textBorderWidth: 3,
+          },
+          emphasis: {
+            itemStyle: {
+              areaColor: "rgba(14, 165, 233, 0.72)",
+              borderColor: "#0284c7",
+              borderWidth: 1.4,
+            },
+            label: {
+              show: true,
+              color: "#0f172a",
+              fontSize: 12,
+              fontWeight: 600,
+              textBorderColor: "rgba(255, 255, 255, 0.9)",
+              textBorderWidth: 3,
+            },
+          },
+        })),
+        label: {
+          show: true,
+          color: "rgba(71, 85, 105, 0.58)",
+          fontSize: 11,
+        },
+        itemStyle: {
+          areaColor: "#eaf2fb",
+          borderColor: "rgba(96, 165, 250, 0.48)",
+          borderWidth: 1.05,
+          shadowColor: "rgba(15, 23, 42, 0.08)",
+          shadowBlur: 10,
+        },
+        emphasis: {
+          disabled: true,
+          itemStyle: {
+            areaColor: "#eaf2fb",
+          },
+        },
+        zlevel: 3,
+      },
+    ],
+  };
+}
+
+function getSouthChinaSeaOption(): EChartsCoreOption {
+  return {
+    backgroundColor: "transparent",
+    series: [
+      {
+        type: "map",
+        map: "south-china-sea-inset-map",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        roam: false,
+        silent: true,
+        label: { show: false },
+        itemStyle: {
+          areaColor: "rgba(234, 242, 251, 0.65)",
+          borderColor: "rgba(96, 165, 250, 0.60)",
+          borderWidth: 1.1,
+        },
+      },
+    ],
+  };
+}
+
+function getTravelMapStats(records: TravelRecord[]) {
+  const visitedCities = getVisitedCitySummary(records);
+  const seen = new Set<string>();
+  const recentCities: RecentCityVisit[] = [];
+
+  for (const record of records) {
+    for (const city of [normalizeCity(record.to), normalizeCity(record.from)]) {
+      if (seen.has(city)) continue;
+      seen.add(city);
+      recentCities.push({ city, date: record.date });
+      if (recentCities.length >= 4) break;
+    }
+
+    if (recentCities.length >= 4) break;
+  }
+
+  return {
+    cityCount: visitedCities.length,
+    recentCities,
+  };
+}
+
+function getVisitedCityAreas(summary: SummaryPoint[]): CityArea[] {
+  return summary
+    .map((item) => {
+      const meta = cityAreaCodeMap[item.label];
+      if (!meta) return null;
+      return {
+        name: item.label,
+        adcode: meta.code,
+        value: item.value,
+        records: item.records,
+      };
+    })
+    .filter(Boolean) as CityArea[];
+}
+
 function getYearlySeries(records: TravelRecord[]) {
   const groups = records.reduce<Record<string, { count: number; fare: number }>>((acc, record) => {
     const year = record.date.slice(0, 4);
@@ -837,6 +1183,120 @@ function getGroupedSummary(records: TravelRecord[], getKey: (record: TravelRecor
       value: groupRecords.length,
       records: groupRecords,
     }));
+}
+
+function getVisitedCitySummary(records: TravelRecord[]): SummaryPoint[] {
+  const groups = records.reduce<Record<string, Map<string, TravelRecord>>>((acc, record) => {
+    for (const city of [normalizeCity(record.from), normalizeCity(record.to)]) {
+      acc[city] = acc[city] || new Map<string, TravelRecord>();
+      acc[city].set(record.id, record);
+    }
+    return acc;
+  }, {});
+
+  return Object.entries(groups)
+    .map(([label, groupRecords]) => ({
+      label,
+      records: Array.from(groupRecords.values()),
+    }))
+    .map((item) => ({
+      ...item,
+      value: item.records.length,
+    }))
+    .sort((a, b) => b.value - a.value);
+}
+
+function getProvinceBoundaryCode(adcode: string) {
+  return `${adcode.slice(0, 2)}0000`;
+}
+
+function buildTravelCityFeatureCollection(
+  cityAreas: CityArea[],
+  provinceFeatureMap: Map<string, Record<string, unknown>>,
+  chinaGeoJson: Record<string, unknown> | null,
+) {
+  const chinaFeatures = ((chinaGeoJson as { features?: Array<Record<string, unknown>> } | null)?.features || [])
+    .filter((feature) => {
+      const props = feature.properties as { name?: string } | undefined;
+      return Boolean(String(props?.name || "").trim());
+    });
+
+  const cityFeatures = cityAreas.flatMap((cityArea) => {
+    const provinceCode = getProvinceBoundaryCode(cityArea.adcode);
+    if (cityArea.adcode.endsWith("0000")) {
+      const provinceFeature = chinaFeatures.find((feature) => {
+        const props = feature.properties as { name?: string } | undefined;
+        return normalizeProvinceName(String(props?.name || "")) === cityArea.name;
+      });
+
+      if (!provinceFeature) return [];
+
+      return [
+        {
+          ...provinceFeature,
+          geometry: clipMainlandGeometry(provinceFeature.geometry),
+          properties: {
+            ...(provinceFeature.properties as Record<string, unknown>),
+            name: cityArea.name,
+          },
+        },
+      ];
+    }
+
+    const provinceGeo = provinceFeatureMap.get(provinceCode);
+    const provinceFeatures = (provinceGeo as { features?: Array<Record<string, unknown>> } | undefined)?.features || [];
+    const targetFeature = provinceFeatures.find((feature) => {
+      const props = feature.properties as { adcode?: number } | undefined;
+      return String(props?.adcode || "") === cityArea.adcode;
+    });
+
+    if (!targetFeature) return [];
+
+    return [
+      {
+        ...targetFeature,
+        geometry: clipMainlandGeometry(targetFeature.geometry),
+        properties: {
+          ...(targetFeature.properties as Record<string, unknown>),
+          name: cityArea.name,
+        },
+      },
+    ];
+  });
+
+  return {
+    type: "FeatureCollection",
+    features: [...chinaFeatures, ...cityFeatures],
+  };
+}
+
+function clipMainlandGeometry(geometry: unknown) {
+  const typedGeometry = geometry as
+    | { type?: string; coordinates?: unknown[] }
+    | undefined;
+  if (!typedGeometry?.coordinates) return geometry;
+
+  if (typedGeometry.type === "Polygon") {
+    const coordinates = (typedGeometry.coordinates as number[][][])
+      .filter((ring) => getMaxLatitude(ring) >= 17.5);
+    return coordinates.length ? { ...typedGeometry, coordinates } : typedGeometry;
+  }
+
+  if (typedGeometry.type === "MultiPolygon") {
+    const coordinates = (typedGeometry.coordinates as number[][][][])
+      .filter((polygon) => Math.max(...polygon.map(getMaxLatitude)) >= 17.5);
+    return coordinates.length ? { ...typedGeometry, coordinates } : typedGeometry;
+  }
+
+  return geometry;
+}
+
+function getMaxLatitude(ring: number[][]) {
+  return ring.reduce((max, point) => Math.max(max, point[1] ?? -Infinity), -Infinity);
+}
+
+function normalizeProvinceName(name: string) {
+  return name.replace(/(省|市|壮族自治区|回族自治区|维吾尔自治区|自治区|特别行政区)$/g, "");
 }
 
 function getTrainType(train: string) {
