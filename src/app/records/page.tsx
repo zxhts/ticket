@@ -2,6 +2,8 @@ import AdminShell from "@/src/frontend/components/AdminShell";
 import RecordManager from "@/src/frontend/components/RecordManager";
 import { readRecords } from "@/src/backend/lib/recordStore";
 
+export const dynamic = "force-dynamic";
+
 export default async function RecordsPage() {
   const records = await readRecords();
 

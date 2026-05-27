@@ -53,9 +53,20 @@ type CityPoint = {
 type CityArea = {
   name: string;
   adcode: string;
+  file: string;
   records: TravelRecord[];
   value: number;
 };
+
+type CityAreaIndexEntry = {
+  adcode: string;
+  file: string;
+  name: string;
+  alias: string;
+  province: string;
+};
+
+type CityAreaIndex = Record<string, CityAreaIndexEntry>;
 
 type RecentCityVisit = {
   city: string;
@@ -92,6 +103,7 @@ const stationCityMap: Record<string, string> = {
   清河: "北京",
   大兴机场: "北京",
   通州西: "北京",
+  香港西九龙: "香港",
   燕郊: "廊坊",
   天津: "天津",
   天津南: "天津",
@@ -127,6 +139,8 @@ const stationCityMap: Record<string, string> = {
   奉节: "重庆",
   哈尔滨: "哈尔滨",
   哈尔滨西: "哈尔滨",
+  大连北: "大连",
+  长春西: "长春",
   呼和浩特东: "呼和浩特",
   昆明: "昆明",
   大理: "大理",
@@ -160,6 +174,8 @@ const cityCoordinates: Record<string, [number, number]> = {
   商丘: [115.6564, 34.4142],
   徐州: [117.2841, 34.2058],
   哈尔滨: [126.6424, 45.7560],
+  大连: [121.6147, 38.9140],
+  长春: [125.3235, 43.8171],
   呼和浩特: [111.7492, 40.8426],
   昆明: [102.8332, 24.8797],
   大理: [100.2676, 25.6065],
@@ -169,44 +185,13 @@ const cityCoordinates: Record<string, [number, number]> = {
   长沙: [112.9388, 28.2282],
   绵阳: [104.6796, 31.4675],
 };
-const cityAreaCodeMap: Record<string, { code: string; name: string; province: string }> = {
-  北京: { code: "110000", name: "北京市", province: "北京" },
-  天津: { code: "120000", name: "天津市", province: "天津" },
-  石家庄: { code: "130100", name: "石家庄市", province: "河北" },
-  唐山: { code: "130200", name: "唐山市", province: "河北" },
-  秦皇岛: { code: "130300", name: "秦皇岛市", province: "河北" },
-  保定: { code: "130600", name: "保定市", province: "河北" },
-  廊坊: { code: "131000", name: "廊坊市", province: "河北" },
-  张家口: { code: "130700", name: "张家口市", province: "河北" },
-  承德: { code: "130800", name: "承德市", province: "河北" },
-  上海: { code: "310000", name: "上海市", province: "上海" },
-  南京: { code: "320100", name: "南京市", province: "江苏" },
-  徐州: { code: "320300", name: "徐州市", province: "江苏" },
-  杭州: { code: "330100", name: "杭州市", province: "浙江" },
-  青岛: { code: "370200", name: "青岛市", province: "山东" },
-  泰安: { code: "370900", name: "泰安市", province: "山东" },
-  菏泽: { code: "371700", name: "菏泽市", province: "山东" },
-  济南: { code: "370100", name: "济南市", province: "山东" },
-  郑州: { code: "410100", name: "郑州市", province: "河南" },
-  商丘: { code: "411400", name: "商丘市", province: "河南" },
-  成都: { code: "510100", name: "成都市", province: "四川" },
-  绵阳: { code: "510700", name: "绵阳市", province: "四川" },
-  重庆: { code: "500000", name: "重庆市", province: "重庆" },
-  昆明: { code: "530100", name: "昆明市", province: "云南" },
-  大理: { code: "532900", name: "大理白族自治州", province: "云南" },
-  西安: { code: "610100", name: "西安市", province: "陕西" },
-  哈尔滨: { code: "230100", name: "哈尔滨市", province: "黑龙江" },
-  呼和浩特: { code: "150100", name: "呼和浩特市", province: "内蒙古" },
-  长沙: { code: "430100", name: "长沙市", province: "湖南" },
-  亳州: { code: "341600", name: "亳州市", province: "安徽" },
-};
-
 export default function StatisticsDashboard({ records }: Props) {
   const [selectedYear, setSelectedYear] = React.useState("全部");
   const [detailStack, setDetailStack] = React.useState<DetailState[]>([]);
   const detailScrollRef = React.useRef<number[]>([]);
   const detailBodyRef = React.useRef<HTMLDivElement | null>(null);
   const [mapReady, setMapReady] = React.useState(false);
+  const [cityAreaIndex, setCityAreaIndex] = React.useState<CityAreaIndex | null>(null);
   const sortedRecords = React.useMemo(
     () => [...records].sort((a, b) => b.date.localeCompare(a.date)),
     [records],
@@ -235,12 +220,12 @@ export default function StatisticsDashboard({ records }: Props) {
   const arrivalStations = React.useMemo(() => getCountSeries(filteredRecords, (record) => record.to).slice(0, 10), [filteredRecords]);
   const departureStations = React.useMemo(() => getCountSeries(filteredRecords, (record) => record.from).slice(0, 10), [filteredRecords]);
   const cities = React.useMemo(
-    () => getCountSeries(filteredRecords, (record) => normalizeCity(record.to)).slice(0, 10),
-    [filteredRecords],
+    () => getCountSeries(filteredRecords, (record) => normalizeCity(record.to, cityAreaIndex)).slice(0, 10),
+    [cityAreaIndex, filteredRecords],
   );
   const departureCities = React.useMemo(
-    () => getCountSeries(filteredRecords, (record) => normalizeCity(record.from)).slice(0, 10),
-    [filteredRecords],
+    () => getCountSeries(filteredRecords, (record) => normalizeCity(record.from, cityAreaIndex)).slice(0, 10),
+    [cityAreaIndex, filteredRecords],
   );
   const topRoutes = React.useMemo(
     () => getCountSeries(filteredRecords, (record) => `${record.from} → ${record.to}`).slice(0, 10),
@@ -269,17 +254,42 @@ export default function StatisticsDashboard({ records }: Props) {
   const routeOption = React.useMemo(() => getRankOption(topRoutes, "#1f6feb", 120), [topRoutes]);
   const topFareOption = React.useMemo(() => getTopFareOption(topFareChartRecords), [topFareChartRecords]);
   const lowFareOption = React.useMemo(() => getTopFareOption(lowFareChartRecords), [lowFareChartRecords]);
-  const visitedCitySummary = React.useMemo(() => getVisitedCitySummary(filteredRecords), [filteredRecords]);
-  const cityAreas = React.useMemo(() => getVisitedCityAreas(visitedCitySummary), [visitedCitySummary]);
+  const visitedCitySummary = React.useMemo(
+    () => getVisitedCitySummary(filteredRecords, cityAreaIndex),
+    [cityAreaIndex, filteredRecords],
+  );
+  const cityAreas = React.useMemo(
+    () => getVisitedCityAreas(visitedCitySummary, cityAreaIndex),
+    [cityAreaIndex, visitedCitySummary],
+  );
   const mapOption = React.useMemo(() => getTravelMapOption(cityAreas), [cityAreas]);
-  const mapStats = React.useMemo(() => getTravelMapStats(filteredRecords), [filteredRecords]);
+  const mapStats = React.useMemo(() => getTravelMapStats(filteredRecords, cityAreaIndex), [cityAreaIndex, filteredRecords]);
 
   React.useEffect(() => {
     let active = true;
-    const provinceCodes = Array.from(
-      new Set(cityAreas.map((item) => getProvinceBoundaryCode(item.adcode))),
-    );
+
+    fetch("/maps/cities/index.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load city area index");
+        return response.json();
+      })
+      .then((index: CityAreaIndex) => {
+        if (active) setCityAreaIndex(index);
+      })
+      .catch(() => {
+        if (active) setCityAreaIndex({});
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  React.useEffect(() => {
+    let active = true;
     setMapReady(false);
+
+    if (!cityAreaIndex) return;
 
     Promise.all(
       [
@@ -291,23 +301,23 @@ export default function StatisticsDashboard({ records }: Props) {
           if (!response.ok) throw new Error("Failed to load south china sea map");
           return response.json();
         }),
-        ...provinceCodes.map((code) =>
-          fetch(`/maps/admin/${code}_full.json`).then((response) => {
-            if (!response.ok) throw new Error(`Failed to load province map ${code}`);
+        ...cityAreas.map((area) =>
+          fetch(area.file).then((response) => {
+            if (!response.ok) throw new Error(`Failed to load city map ${area.adcode}`);
             return response.json();
           }),
         ),
       ],
     )
-      .then(([chinaGeoJson, southChinaSeaGeoJson, ...provinceMaps]) => {
-        const provinceFeatureMap = new Map<string, Record<string, unknown>>();
-        provinceMaps.forEach((geoJson, index) => {
-          provinceFeatureMap.set(provinceCodes[index], geoJson as Record<string, unknown>);
+      .then(([chinaGeoJson, southChinaSeaGeoJson, ...cityMaps]) => {
+        const cityFeatureMap = new Map<string, Record<string, unknown>>();
+        cityMaps.forEach((geoJson, index) => {
+          cityFeatureMap.set(cityAreas[index].adcode, geoJson as Record<string, unknown>);
         });
 
         const featureCollection = buildTravelCityFeatureCollection(
           cityAreas,
-          provinceFeatureMap,
+          cityFeatureMap,
           chinaGeoJson as Record<string, unknown>,
         );
         echarts.registerMap("travel-mainland-city-map", featureCollection as never);
@@ -321,7 +331,7 @@ export default function StatisticsDashboard({ records }: Props) {
     return () => {
       active = false;
     };
-  }, [cityAreas]);
+  }, [cityAreaIndex, cityAreas]);
 
   React.useLayoutEffect(() => {
     if (!detailState || !detailBodyRef.current) return;
@@ -370,15 +380,19 @@ export default function StatisticsDashboard({ records }: Props) {
           />
           <StatCard
             label="到达城市"
-            value={String(new Set(filteredRecords.map((record) => normalizeCity(record.to))).size)}
+            value={String(new Set(filteredRecords.map((record) => normalizeCity(record.to, cityAreaIndex))).size)}
             desc="个城市维度"
-            onClick={() => openSummary("到达城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.to)))}
+            onClick={() =>
+              openSummary("到达城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.to, cityAreaIndex)))
+            }
           />
           <StatCard
             label="出发城市"
-            value={String(new Set(filteredRecords.map((record) => normalizeCity(record.from))).size)}
+            value={String(new Set(filteredRecords.map((record) => normalizeCity(record.from, cityAreaIndex))).size)}
             desc="个城市维度"
-            onClick={() => openSummary("出发城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.from)))}
+            onClick={() =>
+              openSummary("出发城市统计", getGroupedSummary(filteredRecords, (record) => normalizeCity(record.from, cityAreaIndex)))
+            }
           />
           <StatCard
             label="出发车站"
@@ -484,9 +498,9 @@ export default function StatisticsDashboard({ records }: Props) {
               ))}
             </div>
           </div>
-        </div>
 
-        {mapReady ? <EChart option={getSouthChinaSeaOption()} miniMap /> : null}
+          {mapReady ? <EChart option={getSouthChinaSeaOption()} miniMap /> : null}
+        </div>
       </section>
 
       <section className="panel chart-panel">
@@ -539,7 +553,10 @@ export default function StatisticsDashboard({ records }: Props) {
           option={cityOption}
           compact
           onChartClick={(params) =>
-            openDetails(`到达 ${params.name || "城市"} 明细`, filteredRecords.filter((record) => normalizeCity(record.to) === params.name))
+            openDetails(
+              `到达 ${params.name || "城市"} 明细`,
+              filteredRecords.filter((record) => normalizeCity(record.to, cityAreaIndex) === params.name),
+            )
           }
         />
       </section>
@@ -550,7 +567,10 @@ export default function StatisticsDashboard({ records }: Props) {
           option={departureCityOption}
           compact
           onChartClick={(params) =>
-            openDetails(`出发 ${params.name || "城市"} 明细`, filteredRecords.filter((record) => normalizeCity(record.from) === params.name))
+            openDetails(
+              `出发 ${params.name || "城市"} 明细`,
+              filteredRecords.filter((record) => normalizeCity(record.from, cityAreaIndex) === params.name),
+            )
           }
         />
       </section>
@@ -1101,13 +1121,13 @@ function getSouthChinaSeaOption(): EChartsCoreOption {
   };
 }
 
-function getTravelMapStats(records: TravelRecord[]) {
-  const visitedCities = getVisitedCitySummary(records);
+function getTravelMapStats(records: TravelRecord[], cityAreaIndex: CityAreaIndex | null) {
+  const visitedCities = getVisitedCitySummary(records, cityAreaIndex);
   const seen = new Set<string>();
   const recentCities: RecentCityVisit[] = [];
 
   for (const record of records) {
-    for (const city of [normalizeCity(record.to), normalizeCity(record.from)]) {
+    for (const city of [normalizeCity(record.to, cityAreaIndex), normalizeCity(record.from, cityAreaIndex)]) {
       if (seen.has(city)) continue;
       seen.add(city);
       recentCities.push({ city, date: record.date });
@@ -1123,14 +1143,18 @@ function getTravelMapStats(records: TravelRecord[]) {
   };
 }
 
-function getVisitedCityAreas(summary: SummaryPoint[]): CityArea[] {
+function getVisitedCityAreas(summary: SummaryPoint[], cityAreaIndex: CityAreaIndex | null): CityArea[] {
   return summary
     .map((item) => {
-      const meta = cityAreaCodeMap[item.label];
+      const meta = getCityAreaMeta(item.label, cityAreaIndex);
+      if (!meta) {
+        console.warn(`[travel-map] Missing city area mapping: ${item.label}`);
+      }
       if (!meta) return null;
       return {
-        name: item.label,
-        adcode: meta.code,
+        name: meta.alias || item.label,
+        adcode: meta.adcode,
+        file: meta.file,
         value: item.value,
         records: item.records,
       };
@@ -1185,9 +1209,9 @@ function getGroupedSummary(records: TravelRecord[], getKey: (record: TravelRecor
     }));
 }
 
-function getVisitedCitySummary(records: TravelRecord[]): SummaryPoint[] {
+function getVisitedCitySummary(records: TravelRecord[], cityAreaIndex: CityAreaIndex | null): SummaryPoint[] {
   const groups = records.reduce<Record<string, Map<string, TravelRecord>>>((acc, record) => {
-    for (const city of [normalizeCity(record.from), normalizeCity(record.to)]) {
+    for (const city of [normalizeCity(record.from, cityAreaIndex), normalizeCity(record.to, cityAreaIndex)]) {
       acc[city] = acc[city] || new Map<string, TravelRecord>();
       acc[city].set(record.id, record);
     }
@@ -1206,13 +1230,9 @@ function getVisitedCitySummary(records: TravelRecord[]): SummaryPoint[] {
     .sort((a, b) => b.value - a.value);
 }
 
-function getProvinceBoundaryCode(adcode: string) {
-  return `${adcode.slice(0, 2)}0000`;
-}
-
 function buildTravelCityFeatureCollection(
   cityAreas: CityArea[],
-  provinceFeatureMap: Map<string, Record<string, unknown>>,
+  cityFeatureMap: Map<string, Record<string, unknown>>,
   chinaGeoJson: Record<string, unknown> | null,
 ) {
   const chinaFeatures = ((chinaGeoJson as { features?: Array<Record<string, unknown>> } | null)?.features || [])
@@ -1222,34 +1242,8 @@ function buildTravelCityFeatureCollection(
     });
 
   const cityFeatures = cityAreas.flatMap((cityArea) => {
-    const provinceCode = getProvinceBoundaryCode(cityArea.adcode);
-    if (cityArea.adcode.endsWith("0000")) {
-      const provinceFeature = chinaFeatures.find((feature) => {
-        const props = feature.properties as { name?: string } | undefined;
-        return normalizeProvinceName(String(props?.name || "")) === cityArea.name;
-      });
-
-      if (!provinceFeature) return [];
-
-      return [
-        {
-          ...provinceFeature,
-          geometry: clipMainlandGeometry(provinceFeature.geometry),
-          properties: {
-            ...(provinceFeature.properties as Record<string, unknown>),
-            name: cityArea.name,
-          },
-        },
-      ];
-    }
-
-    const provinceGeo = provinceFeatureMap.get(provinceCode);
-    const provinceFeatures = (provinceGeo as { features?: Array<Record<string, unknown>> } | undefined)?.features || [];
-    const targetFeature = provinceFeatures.find((feature) => {
-      const props = feature.properties as { adcode?: number } | undefined;
-      return String(props?.adcode || "") === cityArea.adcode;
-    });
-
+    const cityGeo = cityFeatureMap.get(cityArea.adcode);
+    const targetFeature = (cityGeo as { features?: Array<Record<string, unknown>> } | undefined)?.features?.[0];
     if (!targetFeature) return [];
 
     return [
@@ -1295,10 +1289,6 @@ function getMaxLatitude(ring: number[][]) {
   return ring.reduce((max, point) => Math.max(max, point[1] ?? -Infinity), -Infinity);
 }
 
-function normalizeProvinceName(name: string) {
-  return name.replace(/(省|市|壮族自治区|回族自治区|维吾尔自治区|自治区|特别行政区)$/g, "");
-}
-
 function getTrainType(train: string) {
   const prefix = train.match(/^[A-Z]/i)?.[0]?.toUpperCase();
   if (!prefix) return "普速数字";
@@ -1306,11 +1296,27 @@ function getTrainType(train: string) {
   return "其他";
 }
 
-function normalizeCity(station: string) {
-  if (stationCityMap[station]) return stationCityMap[station];
-  return station
+function normalizeCity(station: string, cityAreaIndex?: CityAreaIndex | null) {
+  const trimmedStation = station.trim();
+  if (stationCityMap[trimmedStation]) return stationCityMap[trimmedStation];
+  const normalizedStation = trimmedStation
     .replace(/(东|西|南|北|朝阳|丰台|通州|清河|机场|北站|南站|东站|西站)$/g, "")
-    .replace(/站$/g, "") || station;
+    .replace(/站$/g, "") || trimmedStation;
+  const meta = getCityAreaMeta(trimmedStation, cityAreaIndex) || getCityAreaMeta(normalizedStation, cityAreaIndex);
+  return meta?.alias || normalizedStation;
+}
+
+function getCityAreaMeta(cityOrStation: string, cityAreaIndex?: CityAreaIndex | null) {
+  if (!cityAreaIndex) return null;
+  const target = cityOrStation.trim();
+  if (!target) return null;
+  if (cityAreaIndex[target]) return cityAreaIndex[target];
+
+  return (
+    Object.entries(cityAreaIndex)
+      .filter(([alias]) => target.startsWith(alias) && alias.length >= 2)
+      .sort((a, b) => b[0].length - a[0].length)[0]?.[1] || null
+  );
 }
 
 function getRecordMeta(record: TravelRecord) {

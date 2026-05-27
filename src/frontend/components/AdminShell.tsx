@@ -30,6 +30,7 @@ export default function AdminShell({ active, title, description, children }: Pro
               className={`side-nav-item${active === item.key ? " active" : ""}`}
               href={item.href}
               key={item.key}
+              prefetch={false}
             >
               <strong>{item.label}</strong>
               <span>{item.desc}</span>

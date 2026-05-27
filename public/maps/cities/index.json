@@ -1,0 +1,3187 @@
+{
+  "阿坝": {
+    "adcode": "513200",
+    "file": "/maps/cities/513200.json",
+    "name": "阿坝藏族羌族自治州",
+    "alias": "阿坝",
+    "province": "四川"
+  },
+  "阿克苏": {
+    "adcode": "652900",
+    "file": "/maps/cities/652900.json",
+    "name": "阿克苏地区",
+    "alias": "阿克苏",
+    "province": "新疆维吾尔"
+  },
+  "阿拉尔": {
+    "adcode": "659002",
+    "file": "/maps/cities/659002.json",
+    "name": "阿拉尔市",
+    "alias": "阿拉尔",
+    "province": "新疆维吾尔"
+  },
+  "阿拉善": {
+    "adcode": "152900",
+    "file": "/maps/cities/152900.json",
+    "name": "阿拉善盟",
+    "alias": "阿拉善",
+    "province": "内蒙古"
+  },
+  "阿勒泰": {
+    "adcode": "654300",
+    "file": "/maps/cities/654300.json",
+    "name": "阿勒泰地区",
+    "alias": "阿勒泰",
+    "province": "新疆维吾尔"
+  },
+  "阿里": {
+    "adcode": "542500",
+    "file": "/maps/cities/542500.json",
+    "name": "阿里地区",
+    "alias": "阿里",
+    "province": "西藏"
+  },
+  "安康": {
+    "adcode": "610900",
+    "file": "/maps/cities/610900.json",
+    "name": "安康市",
+    "alias": "安康",
+    "province": "陕西"
+  },
+  "安庆": {
+    "adcode": "340800",
+    "file": "/maps/cities/340800.json",
+    "name": "安庆市",
+    "alias": "安庆",
+    "province": "安徽"
+  },
+  "安顺": {
+    "adcode": "520400",
+    "file": "/maps/cities/520400.json",
+    "name": "安顺市",
+    "alias": "安顺",
+    "province": "贵州"
+  },
+  "安阳": {
+    "adcode": "410500",
+    "file": "/maps/cities/410500.json",
+    "name": "安阳市",
+    "alias": "安阳",
+    "province": "河南"
+  },
+  "鞍山": {
+    "adcode": "210300",
+    "file": "/maps/cities/210300.json",
+    "name": "鞍山市",
+    "alias": "鞍山",
+    "province": "辽宁"
+  },
+  "澳门": {
+    "adcode": "820000",
+    "file": "/maps/cities/820000.json",
+    "name": "澳门特别行政区",
+    "alias": "澳门",
+    "province": "澳门"
+  },
+  "巴南区": {
+    "adcode": "500113",
+    "file": "/maps/cities/500113.json",
+    "name": "巴南区",
+    "alias": "巴南区",
+    "province": "重庆"
+  },
+  "巴彦淖尔": {
+    "adcode": "150800",
+    "file": "/maps/cities/150800.json",
+    "name": "巴彦淖尔市",
+    "alias": "巴彦淖尔",
+    "province": "内蒙古"
+  },
+  "巴音郭楞": {
+    "adcode": "652800",
+    "file": "/maps/cities/652800.json",
+    "name": "巴音郭楞蒙古自治州",
+    "alias": "巴音郭楞",
+    "province": "新疆维吾尔"
+  },
+  "巴中": {
+    "adcode": "511900",
+    "file": "/maps/cities/511900.json",
+    "name": "巴中市",
+    "alias": "巴中",
+    "province": "四川"
+  },
+  "白城": {
+    "adcode": "220800",
+    "file": "/maps/cities/220800.json",
+    "name": "白城市",
+    "alias": "白城",
+    "province": "吉林"
+  },
+  "白沙黎族自治县": {
+    "adcode": "469025",
+    "file": "/maps/cities/469025.json",
+    "name": "白沙黎族自治县",
+    "alias": "白沙黎族自治县",
+    "province": "海南"
+  },
+  "白山": {
+    "adcode": "220600",
+    "file": "/maps/cities/220600.json",
+    "name": "白山市",
+    "alias": "白山",
+    "province": "吉林"
+  },
+  "白银": {
+    "adcode": "620400",
+    "file": "/maps/cities/620400.json",
+    "name": "白银市",
+    "alias": "白银",
+    "province": "甘肃"
+  },
+  "百色": {
+    "adcode": "451000",
+    "file": "/maps/cities/451000.json",
+    "name": "百色市",
+    "alias": "百色",
+    "province": "广西壮族"
+  },
+  "蚌埠": {
+    "adcode": "340300",
+    "file": "/maps/cities/340300.json",
+    "name": "蚌埠市",
+    "alias": "蚌埠",
+    "province": "安徽"
+  },
+  "包头": {
+    "adcode": "150200",
+    "file": "/maps/cities/150200.json",
+    "name": "包头市",
+    "alias": "包头",
+    "province": "内蒙古"
+  },
+  "宝坻区": {
+    "adcode": "120115",
+    "file": "/maps/cities/120115.json",
+    "name": "宝坻区",
+    "alias": "宝坻区",
+    "province": "天津"
+  },
+  "宝鸡": {
+    "adcode": "610300",
+    "file": "/maps/cities/610300.json",
+    "name": "宝鸡市",
+    "alias": "宝鸡",
+    "province": "陕西"
+  },
+  "宝山区": {
+    "adcode": "310113",
+    "file": "/maps/cities/310113.json",
+    "name": "宝山区",
+    "alias": "宝山区",
+    "province": "上海"
+  },
+  "保定": {
+    "adcode": "130600",
+    "file": "/maps/cities/130600.json",
+    "name": "保定市",
+    "alias": "保定",
+    "province": "河北"
+  },
+  "保山": {
+    "adcode": "530500",
+    "file": "/maps/cities/530500.json",
+    "name": "保山市",
+    "alias": "保山",
+    "province": "云南"
+  },
+  "保亭黎族苗族自治县": {
+    "adcode": "469029",
+    "file": "/maps/cities/469029.json",
+    "name": "保亭黎族苗族自治县",
+    "alias": "保亭黎族苗族自治县",
+    "province": "海南"
+  },
+  "北碚区": {
+    "adcode": "500109",
+    "file": "/maps/cities/500109.json",
+    "name": "北碚区",
+    "alias": "北碚区",
+    "province": "重庆"
+  },
+  "北辰区": {
+    "adcode": "120113",
+    "file": "/maps/cities/120113.json",
+    "name": "北辰区",
+    "alias": "北辰区",
+    "province": "天津"
+  },
+  "北海": {
+    "adcode": "450500",
+    "file": "/maps/cities/450500.json",
+    "name": "北海市",
+    "alias": "北海",
+    "province": "广西壮族"
+  },
+  "北京": {
+    "adcode": "110000",
+    "file": "/maps/cities/110000.json",
+    "name": "北京市",
+    "alias": "北京",
+    "province": "北京"
+  },
+  "北屯": {
+    "adcode": "659005",
+    "file": "/maps/cities/659005.json",
+    "name": "北屯市",
+    "alias": "北屯",
+    "province": "新疆维吾尔"
+  },
+  "本溪": {
+    "adcode": "210500",
+    "file": "/maps/cities/210500.json",
+    "name": "本溪市",
+    "alias": "本溪",
+    "province": "辽宁"
+  },
+  "毕节": {
+    "adcode": "520500",
+    "file": "/maps/cities/520500.json",
+    "name": "毕节市",
+    "alias": "毕节",
+    "province": "贵州"
+  },
+  "璧山区": {
+    "adcode": "500120",
+    "file": "/maps/cities/500120.json",
+    "name": "璧山区",
+    "alias": "璧山区",
+    "province": "重庆"
+  },
+  "滨海新区": {
+    "adcode": "120116",
+    "file": "/maps/cities/120116.json",
+    "name": "滨海新区",
+    "alias": "滨海新区",
+    "province": "天津"
+  },
+  "滨州": {
+    "adcode": "371600",
+    "file": "/maps/cities/371600.json",
+    "name": "滨州市",
+    "alias": "滨州",
+    "province": "山东"
+  },
+  "亳州": {
+    "adcode": "341600",
+    "file": "/maps/cities/341600.json",
+    "name": "亳州市",
+    "alias": "亳州",
+    "province": "安徽"
+  },
+  "博尔塔拉": {
+    "adcode": "652700",
+    "file": "/maps/cities/652700.json",
+    "name": "博尔塔拉蒙古自治州",
+    "alias": "博尔塔拉",
+    "province": "新疆维吾尔"
+  },
+  "沧州": {
+    "adcode": "130900",
+    "file": "/maps/cities/130900.json",
+    "name": "沧州市",
+    "alias": "沧州",
+    "province": "河北"
+  },
+  "昌都": {
+    "adcode": "540300",
+    "file": "/maps/cities/540300.json",
+    "name": "昌都市",
+    "alias": "昌都",
+    "province": "西藏"
+  },
+  "昌吉": {
+    "adcode": "652300",
+    "file": "/maps/cities/652300.json",
+    "name": "昌吉回族自治州",
+    "alias": "昌吉",
+    "province": "新疆维吾尔"
+  },
+  "昌江黎族自治县": {
+    "adcode": "469026",
+    "file": "/maps/cities/469026.json",
+    "name": "昌江黎族自治县",
+    "alias": "昌江黎族自治县",
+    "province": "海南"
+  },
+  "昌平区": {
+    "adcode": "110114",
+    "file": "/maps/cities/110114.json",
+    "name": "昌平区",
+    "alias": "昌平区",
+    "province": "北京"
+  },
+  "常德": {
+    "adcode": "430700",
+    "file": "/maps/cities/430700.json",
+    "name": "常德市",
+    "alias": "常德",
+    "province": "湖南"
+  },
+  "常州": {
+    "adcode": "320400",
+    "file": "/maps/cities/320400.json",
+    "name": "常州市",
+    "alias": "常州",
+    "province": "江苏"
+  },
+  "朝阳": {
+    "adcode": "211300",
+    "file": "/maps/cities/211300.json",
+    "name": "朝阳市",
+    "alias": "朝阳",
+    "province": "辽宁"
+  },
+  "朝阳区": {
+    "adcode": "110105",
+    "file": "/maps/cities/110105.json",
+    "name": "朝阳区",
+    "alias": "朝阳区",
+    "province": "北京"
+  },
+  "潮州": {
+    "adcode": "445100",
+    "file": "/maps/cities/445100.json",
+    "name": "潮州市",
+    "alias": "潮州",
+    "province": "广东"
+  },
+  "郴州": {
+    "adcode": "431000",
+    "file": "/maps/cities/431000.json",
+    "name": "郴州市",
+    "alias": "郴州",
+    "province": "湖南"
+  },
+  "成都": {
+    "adcode": "510100",
+    "file": "/maps/cities/510100.json",
+    "name": "成都市",
+    "alias": "成都",
+    "province": "四川"
+  },
+  "承德": {
+    "adcode": "130800",
+    "file": "/maps/cities/130800.json",
+    "name": "承德市",
+    "alias": "承德",
+    "province": "河北"
+  },
+  "城口县": {
+    "adcode": "500229",
+    "file": "/maps/cities/500229.json",
+    "name": "城口县",
+    "alias": "城口县",
+    "province": "重庆"
+  },
+  "澄迈县": {
+    "adcode": "469023",
+    "file": "/maps/cities/469023.json",
+    "name": "澄迈县",
+    "alias": "澄迈县",
+    "province": "海南"
+  },
+  "池州": {
+    "adcode": "341700",
+    "file": "/maps/cities/341700.json",
+    "name": "池州市",
+    "alias": "池州",
+    "province": "安徽"
+  },
+  "赤峰": {
+    "adcode": "150400",
+    "file": "/maps/cities/150400.json",
+    "name": "赤峰市",
+    "alias": "赤峰",
+    "province": "内蒙古"
+  },
+  "重庆": {
+    "adcode": "500000",
+    "file": "/maps/cities/500000.json",
+    "name": "重庆市",
+    "alias": "重庆",
+    "province": "重庆"
+  },
+  "崇明区": {
+    "adcode": "310151",
+    "file": "/maps/cities/310151.json",
+    "name": "崇明区",
+    "alias": "崇明区",
+    "province": "上海"
+  },
+  "崇左": {
+    "adcode": "451400",
+    "file": "/maps/cities/451400.json",
+    "name": "崇左市",
+    "alias": "崇左",
+    "province": "广西壮族"
+  },
+  "滁州": {
+    "adcode": "341100",
+    "file": "/maps/cities/341100.json",
+    "name": "滁州市",
+    "alias": "滁州",
+    "province": "安徽"
+  },
+  "楚雄": {
+    "adcode": "532300",
+    "file": "/maps/cities/532300.json",
+    "name": "楚雄彝族自治州",
+    "alias": "楚雄",
+    "province": "云南"
+  },
+  "达州": {
+    "adcode": "511700",
+    "file": "/maps/cities/511700.json",
+    "name": "达州市",
+    "alias": "达州",
+    "province": "四川"
+  },
+  "大渡口区": {
+    "adcode": "500104",
+    "file": "/maps/cities/500104.json",
+    "name": "大渡口区",
+    "alias": "大渡口区",
+    "province": "重庆"
+  },
+  "大理": {
+    "adcode": "532900",
+    "file": "/maps/cities/532900.json",
+    "name": "大理白族自治州",
+    "alias": "大理",
+    "province": "云南"
+  },
+  "大连": {
+    "adcode": "210200",
+    "file": "/maps/cities/210200.json",
+    "name": "大连市",
+    "alias": "大连",
+    "province": "辽宁"
+  },
+  "大庆": {
+    "adcode": "230600",
+    "file": "/maps/cities/230600.json",
+    "name": "大庆市",
+    "alias": "大庆",
+    "province": "黑龙江"
+  },
+  "大同": {
+    "adcode": "140200",
+    "file": "/maps/cities/140200.json",
+    "name": "大同市",
+    "alias": "大同",
+    "province": "山西"
+  },
+  "大兴安岭": {
+    "adcode": "232700",
+    "file": "/maps/cities/232700.json",
+    "name": "大兴安岭地区",
+    "alias": "大兴安岭",
+    "province": "黑龙江"
+  },
+  "大兴区": {
+    "adcode": "110115",
+    "file": "/maps/cities/110115.json",
+    "name": "大兴区",
+    "alias": "大兴区",
+    "province": "北京"
+  },
+  "大足区": {
+    "adcode": "500111",
+    "file": "/maps/cities/500111.json",
+    "name": "大足区",
+    "alias": "大足区",
+    "province": "重庆"
+  },
+  "丹东": {
+    "adcode": "210600",
+    "file": "/maps/cities/210600.json",
+    "name": "丹东市",
+    "alias": "丹东",
+    "province": "辽宁"
+  },
+  "儋州": {
+    "adcode": "460400",
+    "file": "/maps/cities/460400.json",
+    "name": "儋州市",
+    "alias": "儋州",
+    "province": "海南"
+  },
+  "德宏": {
+    "adcode": "533100",
+    "file": "/maps/cities/533100.json",
+    "name": "德宏傣族景颇族自治州",
+    "alias": "德宏",
+    "province": "云南"
+  },
+  "德阳": {
+    "adcode": "510600",
+    "file": "/maps/cities/510600.json",
+    "name": "德阳市",
+    "alias": "德阳",
+    "province": "四川"
+  },
+  "德州": {
+    "adcode": "371400",
+    "file": "/maps/cities/371400.json",
+    "name": "德州市",
+    "alias": "德州",
+    "province": "山东"
+  },
+  "迪庆": {
+    "adcode": "533400",
+    "file": "/maps/cities/533400.json",
+    "name": "迪庆藏族自治州",
+    "alias": "迪庆",
+    "province": "云南"
+  },
+  "垫江县": {
+    "adcode": "500231",
+    "file": "/maps/cities/500231.json",
+    "name": "垫江县",
+    "alias": "垫江县",
+    "province": "重庆"
+  },
+  "定安县": {
+    "adcode": "469021",
+    "file": "/maps/cities/469021.json",
+    "name": "定安县",
+    "alias": "定安县",
+    "province": "海南"
+  },
+  "定西": {
+    "adcode": "621100",
+    "file": "/maps/cities/621100.json",
+    "name": "定西市",
+    "alias": "定西",
+    "province": "甘肃"
+  },
+  "东城区": {
+    "adcode": "110101",
+    "file": "/maps/cities/110101.json",
+    "name": "东城区",
+    "alias": "东城区",
+    "province": "北京"
+  },
+  "东方": {
+    "adcode": "469007",
+    "file": "/maps/cities/469007.json",
+    "name": "东方市",
+    "alias": "东方",
+    "province": "海南"
+  },
+  "东莞": {
+    "adcode": "441900",
+    "file": "/maps/cities/441900.json",
+    "name": "东莞市",
+    "alias": "东莞",
+    "province": "广东"
+  },
+  "东丽区": {
+    "adcode": "120110",
+    "file": "/maps/cities/120110.json",
+    "name": "东丽区",
+    "alias": "东丽区",
+    "province": "天津"
+  },
+  "东营": {
+    "adcode": "370500",
+    "file": "/maps/cities/370500.json",
+    "name": "东营市",
+    "alias": "东营",
+    "province": "山东"
+  },
+  "鄂尔多斯": {
+    "adcode": "150600",
+    "file": "/maps/cities/150600.json",
+    "name": "鄂尔多斯市",
+    "alias": "鄂尔多斯",
+    "province": "内蒙古"
+  },
+  "鄂州": {
+    "adcode": "420700",
+    "file": "/maps/cities/420700.json",
+    "name": "鄂州市",
+    "alias": "鄂州",
+    "province": "湖北"
+  },
+  "恩施": {
+    "adcode": "422800",
+    "file": "/maps/cities/422800.json",
+    "name": "恩施土家族苗族自治州",
+    "alias": "恩施",
+    "province": "湖北"
+  },
+  "防城港": {
+    "adcode": "450600",
+    "file": "/maps/cities/450600.json",
+    "name": "防城港市",
+    "alias": "防城港",
+    "province": "广西壮族"
+  },
+  "房山区": {
+    "adcode": "110111",
+    "file": "/maps/cities/110111.json",
+    "name": "房山区",
+    "alias": "房山区",
+    "province": "北京"
+  },
+  "丰都县": {
+    "adcode": "500230",
+    "file": "/maps/cities/500230.json",
+    "name": "丰都县",
+    "alias": "丰都县",
+    "province": "重庆"
+  },
+  "丰台区": {
+    "adcode": "110106",
+    "file": "/maps/cities/110106.json",
+    "name": "丰台区",
+    "alias": "丰台区",
+    "province": "北京"
+  },
+  "奉节县": {
+    "adcode": "500236",
+    "file": "/maps/cities/500236.json",
+    "name": "奉节县",
+    "alias": "奉节县",
+    "province": "重庆"
+  },
+  "奉贤区": {
+    "adcode": "310120",
+    "file": "/maps/cities/310120.json",
+    "name": "奉贤区",
+    "alias": "奉贤区",
+    "province": "上海"
+  },
+  "佛山": {
+    "adcode": "440600",
+    "file": "/maps/cities/440600.json",
+    "name": "佛山市",
+    "alias": "佛山",
+    "province": "广东"
+  },
+  "涪陵区": {
+    "adcode": "500102",
+    "file": "/maps/cities/500102.json",
+    "name": "涪陵区",
+    "alias": "涪陵区",
+    "province": "重庆"
+  },
+  "福州": {
+    "adcode": "350100",
+    "file": "/maps/cities/350100.json",
+    "name": "福州市",
+    "alias": "福州",
+    "province": "福建"
+  },
+  "抚顺": {
+    "adcode": "210400",
+    "file": "/maps/cities/210400.json",
+    "name": "抚顺市",
+    "alias": "抚顺",
+    "province": "辽宁"
+  },
+  "抚州": {
+    "adcode": "361000",
+    "file": "/maps/cities/361000.json",
+    "name": "抚州市",
+    "alias": "抚州",
+    "province": "江西"
+  },
+  "阜新": {
+    "adcode": "210900",
+    "file": "/maps/cities/210900.json",
+    "name": "阜新市",
+    "alias": "阜新",
+    "province": "辽宁"
+  },
+  "阜阳": {
+    "adcode": "341200",
+    "file": "/maps/cities/341200.json",
+    "name": "阜阳市",
+    "alias": "阜阳",
+    "province": "安徽"
+  },
+  "甘南": {
+    "adcode": "623000",
+    "file": "/maps/cities/623000.json",
+    "name": "甘南藏族自治州",
+    "alias": "甘南",
+    "province": "甘肃"
+  },
+  "甘孜": {
+    "adcode": "513300",
+    "file": "/maps/cities/513300.json",
+    "name": "甘孜藏族自治州",
+    "alias": "甘孜",
+    "province": "四川"
+  },
+  "赣州": {
+    "adcode": "360700",
+    "file": "/maps/cities/360700.json",
+    "name": "赣州市",
+    "alias": "赣州",
+    "province": "江西"
+  },
+  "固原": {
+    "adcode": "640400",
+    "file": "/maps/cities/640400.json",
+    "name": "固原市",
+    "alias": "固原",
+    "province": "宁夏回族"
+  },
+  "广安": {
+    "adcode": "511600",
+    "file": "/maps/cities/511600.json",
+    "name": "广安市",
+    "alias": "广安",
+    "province": "四川"
+  },
+  "广元": {
+    "adcode": "510800",
+    "file": "/maps/cities/510800.json",
+    "name": "广元市",
+    "alias": "广元",
+    "province": "四川"
+  },
+  "广州": {
+    "adcode": "440100",
+    "file": "/maps/cities/440100.json",
+    "name": "广州市",
+    "alias": "广州",
+    "province": "广东"
+  },
+  "贵港": {
+    "adcode": "450800",
+    "file": "/maps/cities/450800.json",
+    "name": "贵港市",
+    "alias": "贵港",
+    "province": "广西壮族"
+  },
+  "贵阳": {
+    "adcode": "520100",
+    "file": "/maps/cities/520100.json",
+    "name": "贵阳市",
+    "alias": "贵阳",
+    "province": "贵州"
+  },
+  "桂林": {
+    "adcode": "450300",
+    "file": "/maps/cities/450300.json",
+    "name": "桂林市",
+    "alias": "桂林",
+    "province": "广西壮族"
+  },
+  "果洛": {
+    "adcode": "632600",
+    "file": "/maps/cities/632600.json",
+    "name": "果洛藏族自治州",
+    "alias": "果洛",
+    "province": "青海"
+  },
+  "哈尔滨": {
+    "adcode": "230100",
+    "file": "/maps/cities/230100.json",
+    "name": "哈尔滨市",
+    "alias": "哈尔滨",
+    "province": "黑龙江"
+  },
+  "哈密": {
+    "adcode": "650500",
+    "file": "/maps/cities/650500.json",
+    "name": "哈密市",
+    "alias": "哈密",
+    "province": "新疆维吾尔"
+  },
+  "海北": {
+    "adcode": "632200",
+    "file": "/maps/cities/632200.json",
+    "name": "海北藏族自治州",
+    "alias": "海北",
+    "province": "青海"
+  },
+  "海淀区": {
+    "adcode": "110108",
+    "file": "/maps/cities/110108.json",
+    "name": "海淀区",
+    "alias": "海淀区",
+    "province": "北京"
+  },
+  "海东": {
+    "adcode": "630200",
+    "file": "/maps/cities/630200.json",
+    "name": "海东市",
+    "alias": "海东",
+    "province": "青海"
+  },
+  "海口": {
+    "adcode": "460100",
+    "file": "/maps/cities/460100.json",
+    "name": "海口市",
+    "alias": "海口",
+    "province": "海南"
+  },
+  "海南": {
+    "adcode": "632500",
+    "file": "/maps/cities/632500.json",
+    "name": "海南藏族自治州",
+    "alias": "海南",
+    "province": "青海"
+  },
+  "海西": {
+    "adcode": "632800",
+    "file": "/maps/cities/632800.json",
+    "name": "海西蒙古族藏族自治州",
+    "alias": "海西",
+    "province": "青海"
+  },
+  "邯郸": {
+    "adcode": "130400",
+    "file": "/maps/cities/130400.json",
+    "name": "邯郸市",
+    "alias": "邯郸",
+    "province": "河北"
+  },
+  "汉中": {
+    "adcode": "610700",
+    "file": "/maps/cities/610700.json",
+    "name": "汉中市",
+    "alias": "汉中",
+    "province": "陕西"
+  },
+  "杭州": {
+    "adcode": "330100",
+    "file": "/maps/cities/330100.json",
+    "name": "杭州市",
+    "alias": "杭州",
+    "province": "浙江"
+  },
+  "合川区": {
+    "adcode": "500117",
+    "file": "/maps/cities/500117.json",
+    "name": "合川区",
+    "alias": "合川区",
+    "province": "重庆"
+  },
+  "合肥": {
+    "adcode": "340100",
+    "file": "/maps/cities/340100.json",
+    "name": "合肥市",
+    "alias": "合肥",
+    "province": "安徽"
+  },
+  "和平区": {
+    "adcode": "120101",
+    "file": "/maps/cities/120101.json",
+    "name": "和平区",
+    "alias": "和平区",
+    "province": "天津"
+  },
+  "和田": {
+    "adcode": "653200",
+    "file": "/maps/cities/653200.json",
+    "name": "和田地区",
+    "alias": "和田",
+    "province": "新疆维吾尔"
+  },
+  "河北区": {
+    "adcode": "120105",
+    "file": "/maps/cities/120105.json",
+    "name": "河北区",
+    "alias": "河北区",
+    "province": "天津"
+  },
+  "河池": {
+    "adcode": "451200",
+    "file": "/maps/cities/451200.json",
+    "name": "河池市",
+    "alias": "河池",
+    "province": "广西壮族"
+  },
+  "河东区": {
+    "adcode": "120102",
+    "file": "/maps/cities/120102.json",
+    "name": "河东区",
+    "alias": "河东区",
+    "province": "天津"
+  },
+  "河西区": {
+    "adcode": "120103",
+    "file": "/maps/cities/120103.json",
+    "name": "河西区",
+    "alias": "河西区",
+    "province": "天津"
+  },
+  "河源": {
+    "adcode": "441600",
+    "file": "/maps/cities/441600.json",
+    "name": "河源市",
+    "alias": "河源",
+    "province": "广东"
+  },
+  "菏泽": {
+    "adcode": "371700",
+    "file": "/maps/cities/371700.json",
+    "name": "菏泽市",
+    "alias": "菏泽",
+    "province": "山东"
+  },
+  "贺州": {
+    "adcode": "451100",
+    "file": "/maps/cities/451100.json",
+    "name": "贺州市",
+    "alias": "贺州",
+    "province": "广西壮族"
+  },
+  "鹤壁": {
+    "adcode": "410600",
+    "file": "/maps/cities/410600.json",
+    "name": "鹤壁市",
+    "alias": "鹤壁",
+    "province": "河南"
+  },
+  "鹤岗": {
+    "adcode": "230400",
+    "file": "/maps/cities/230400.json",
+    "name": "鹤岗市",
+    "alias": "鹤岗",
+    "province": "黑龙江"
+  },
+  "黑河": {
+    "adcode": "231100",
+    "file": "/maps/cities/231100.json",
+    "name": "黑河市",
+    "alias": "黑河",
+    "province": "黑龙江"
+  },
+  "衡水": {
+    "adcode": "131100",
+    "file": "/maps/cities/131100.json",
+    "name": "衡水市",
+    "alias": "衡水",
+    "province": "河北"
+  },
+  "衡阳": {
+    "adcode": "430400",
+    "file": "/maps/cities/430400.json",
+    "name": "衡阳市",
+    "alias": "衡阳",
+    "province": "湖南"
+  },
+  "红河": {
+    "adcode": "532500",
+    "file": "/maps/cities/532500.json",
+    "name": "红河哈尼族彝族自治州",
+    "alias": "红河",
+    "province": "云南"
+  },
+  "红桥区": {
+    "adcode": "120106",
+    "file": "/maps/cities/120106.json",
+    "name": "红桥区",
+    "alias": "红桥区",
+    "province": "天津"
+  },
+  "虹口区": {
+    "adcode": "310109",
+    "file": "/maps/cities/310109.json",
+    "name": "虹口区",
+    "alias": "虹口区",
+    "province": "上海"
+  },
+  "呼和浩特": {
+    "adcode": "150100",
+    "file": "/maps/cities/150100.json",
+    "name": "呼和浩特市",
+    "alias": "呼和浩特",
+    "province": "内蒙古"
+  },
+  "呼伦贝尔": {
+    "adcode": "150700",
+    "file": "/maps/cities/150700.json",
+    "name": "呼伦贝尔市",
+    "alias": "呼伦贝尔",
+    "province": "内蒙古"
+  },
+  "胡杨河": {
+    "adcode": "659010",
+    "file": "/maps/cities/659010.json",
+    "name": "胡杨河市",
+    "alias": "胡杨河",
+    "province": "新疆维吾尔"
+  },
+  "湖州": {
+    "adcode": "330500",
+    "file": "/maps/cities/330500.json",
+    "name": "湖州市",
+    "alias": "湖州",
+    "province": "浙江"
+  },
+  "葫芦岛": {
+    "adcode": "211400",
+    "file": "/maps/cities/211400.json",
+    "name": "葫芦岛市",
+    "alias": "葫芦岛",
+    "province": "辽宁"
+  },
+  "怀化": {
+    "adcode": "431200",
+    "file": "/maps/cities/431200.json",
+    "name": "怀化市",
+    "alias": "怀化",
+    "province": "湖南"
+  },
+  "怀柔区": {
+    "adcode": "110116",
+    "file": "/maps/cities/110116.json",
+    "name": "怀柔区",
+    "alias": "怀柔区",
+    "province": "北京"
+  },
+  "淮安": {
+    "adcode": "320800",
+    "file": "/maps/cities/320800.json",
+    "name": "淮安市",
+    "alias": "淮安",
+    "province": "江苏"
+  },
+  "淮北": {
+    "adcode": "340600",
+    "file": "/maps/cities/340600.json",
+    "name": "淮北市",
+    "alias": "淮北",
+    "province": "安徽"
+  },
+  "淮南": {
+    "adcode": "340400",
+    "file": "/maps/cities/340400.json",
+    "name": "淮南市",
+    "alias": "淮南",
+    "province": "安徽"
+  },
+  "黄冈": {
+    "adcode": "421100",
+    "file": "/maps/cities/421100.json",
+    "name": "黄冈市",
+    "alias": "黄冈",
+    "province": "湖北"
+  },
+  "黄南": {
+    "adcode": "632300",
+    "file": "/maps/cities/632300.json",
+    "name": "黄南藏族自治州",
+    "alias": "黄南",
+    "province": "青海"
+  },
+  "黄浦区": {
+    "adcode": "310101",
+    "file": "/maps/cities/310101.json",
+    "name": "黄浦区",
+    "alias": "黄浦区",
+    "province": "上海"
+  },
+  "黄山": {
+    "adcode": "341000",
+    "file": "/maps/cities/341000.json",
+    "name": "黄山市",
+    "alias": "黄山",
+    "province": "安徽"
+  },
+  "黄石": {
+    "adcode": "420200",
+    "file": "/maps/cities/420200.json",
+    "name": "黄石市",
+    "alias": "黄石",
+    "province": "湖北"
+  },
+  "惠州": {
+    "adcode": "441300",
+    "file": "/maps/cities/441300.json",
+    "name": "惠州市",
+    "alias": "惠州",
+    "province": "广东"
+  },
+  "鸡西": {
+    "adcode": "230300",
+    "file": "/maps/cities/230300.json",
+    "name": "鸡西市",
+    "alias": "鸡西",
+    "province": "黑龙江"
+  },
+  "吉安": {
+    "adcode": "360800",
+    "file": "/maps/cities/360800.json",
+    "name": "吉安市",
+    "alias": "吉安",
+    "province": "江西"
+  },
+  "吉林": {
+    "adcode": "220200",
+    "file": "/maps/cities/220200.json",
+    "name": "吉林市",
+    "alias": "吉林",
+    "province": "吉林"
+  },
+  "济南": {
+    "adcode": "370100",
+    "file": "/maps/cities/370100.json",
+    "name": "济南市",
+    "alias": "济南",
+    "province": "山东"
+  },
+  "济宁": {
+    "adcode": "370800",
+    "file": "/maps/cities/370800.json",
+    "name": "济宁市",
+    "alias": "济宁",
+    "province": "山东"
+  },
+  "济源": {
+    "adcode": "419001",
+    "file": "/maps/cities/419001.json",
+    "name": "济源市",
+    "alias": "济源",
+    "province": "河南"
+  },
+  "蓟州区": {
+    "adcode": "120119",
+    "file": "/maps/cities/120119.json",
+    "name": "蓟州区",
+    "alias": "蓟州区",
+    "province": "天津"
+  },
+  "佳木斯": {
+    "adcode": "230800",
+    "file": "/maps/cities/230800.json",
+    "name": "佳木斯市",
+    "alias": "佳木斯",
+    "province": "黑龙江"
+  },
+  "嘉定区": {
+    "adcode": "310114",
+    "file": "/maps/cities/310114.json",
+    "name": "嘉定区",
+    "alias": "嘉定区",
+    "province": "上海"
+  },
+  "嘉兴": {
+    "adcode": "330400",
+    "file": "/maps/cities/330400.json",
+    "name": "嘉兴市",
+    "alias": "嘉兴",
+    "province": "浙江"
+  },
+  "嘉峪关": {
+    "adcode": "620200",
+    "file": "/maps/cities/620200.json",
+    "name": "嘉峪关市",
+    "alias": "嘉峪关",
+    "province": "甘肃"
+  },
+  "江北区": {
+    "adcode": "500105",
+    "file": "/maps/cities/500105.json",
+    "name": "江北区",
+    "alias": "江北区",
+    "province": "重庆"
+  },
+  "江津区": {
+    "adcode": "500116",
+    "file": "/maps/cities/500116.json",
+    "name": "江津区",
+    "alias": "江津区",
+    "province": "重庆"
+  },
+  "江门": {
+    "adcode": "440700",
+    "file": "/maps/cities/440700.json",
+    "name": "江门市",
+    "alias": "江门",
+    "province": "广东"
+  },
+  "焦作": {
+    "adcode": "410800",
+    "file": "/maps/cities/410800.json",
+    "name": "焦作市",
+    "alias": "焦作",
+    "province": "河南"
+  },
+  "揭阳": {
+    "adcode": "445200",
+    "file": "/maps/cities/445200.json",
+    "name": "揭阳市",
+    "alias": "揭阳",
+    "province": "广东"
+  },
+  "金昌": {
+    "adcode": "620300",
+    "file": "/maps/cities/620300.json",
+    "name": "金昌市",
+    "alias": "金昌",
+    "province": "甘肃"
+  },
+  "金华": {
+    "adcode": "330700",
+    "file": "/maps/cities/330700.json",
+    "name": "金华市",
+    "alias": "金华",
+    "province": "浙江"
+  },
+  "金山区": {
+    "adcode": "310116",
+    "file": "/maps/cities/310116.json",
+    "name": "金山区",
+    "alias": "金山区",
+    "province": "上海"
+  },
+  "津南区": {
+    "adcode": "120112",
+    "file": "/maps/cities/120112.json",
+    "name": "津南区",
+    "alias": "津南区",
+    "province": "天津"
+  },
+  "锦州": {
+    "adcode": "210700",
+    "file": "/maps/cities/210700.json",
+    "name": "锦州市",
+    "alias": "锦州",
+    "province": "辽宁"
+  },
+  "晋城": {
+    "adcode": "140500",
+    "file": "/maps/cities/140500.json",
+    "name": "晋城市",
+    "alias": "晋城",
+    "province": "山西"
+  },
+  "晋中": {
+    "adcode": "140700",
+    "file": "/maps/cities/140700.json",
+    "name": "晋中市",
+    "alias": "晋中",
+    "province": "山西"
+  },
+  "荆门": {
+    "adcode": "420800",
+    "file": "/maps/cities/420800.json",
+    "name": "荆门市",
+    "alias": "荆门",
+    "province": "湖北"
+  },
+  "荆州": {
+    "adcode": "421000",
+    "file": "/maps/cities/421000.json",
+    "name": "荆州市",
+    "alias": "荆州",
+    "province": "湖北"
+  },
+  "景德镇": {
+    "adcode": "360200",
+    "file": "/maps/cities/360200.json",
+    "name": "景德镇市",
+    "alias": "景德镇",
+    "province": "江西"
+  },
+  "静安区": {
+    "adcode": "310106",
+    "file": "/maps/cities/310106.json",
+    "name": "静安区",
+    "alias": "静安区",
+    "province": "上海"
+  },
+  "静海区": {
+    "adcode": "120118",
+    "file": "/maps/cities/120118.json",
+    "name": "静海区",
+    "alias": "静海区",
+    "province": "天津"
+  },
+  "九江": {
+    "adcode": "360400",
+    "file": "/maps/cities/360400.json",
+    "name": "九江市",
+    "alias": "九江",
+    "province": "江西"
+  },
+  "九龙坡区": {
+    "adcode": "500107",
+    "file": "/maps/cities/500107.json",
+    "name": "九龙坡区",
+    "alias": "九龙坡区",
+    "province": "重庆"
+  },
+  "酒泉": {
+    "adcode": "620900",
+    "file": "/maps/cities/620900.json",
+    "name": "酒泉市",
+    "alias": "酒泉",
+    "province": "甘肃"
+  },
+  "喀什": {
+    "adcode": "653100",
+    "file": "/maps/cities/653100.json",
+    "name": "喀什地区",
+    "alias": "喀什",
+    "province": "新疆维吾尔"
+  },
+  "开封": {
+    "adcode": "410200",
+    "file": "/maps/cities/410200.json",
+    "name": "开封市",
+    "alias": "开封",
+    "province": "河南"
+  },
+  "开州区": {
+    "adcode": "500154",
+    "file": "/maps/cities/500154.json",
+    "name": "开州区",
+    "alias": "开州区",
+    "province": "重庆"
+  },
+  "可克达拉": {
+    "adcode": "659008",
+    "file": "/maps/cities/659008.json",
+    "name": "可克达拉市",
+    "alias": "可克达拉",
+    "province": "新疆维吾尔"
+  },
+  "克拉玛依": {
+    "adcode": "650200",
+    "file": "/maps/cities/650200.json",
+    "name": "克拉玛依市",
+    "alias": "克拉玛依",
+    "province": "新疆维吾尔"
+  },
+  "克孜勒苏": {
+    "adcode": "653000",
+    "file": "/maps/cities/653000.json",
+    "name": "克孜勒苏柯尔克孜自治州",
+    "alias": "克孜勒苏",
+    "province": "新疆维吾尔"
+  },
+  "昆明": {
+    "adcode": "530100",
+    "file": "/maps/cities/530100.json",
+    "name": "昆明市",
+    "alias": "昆明",
+    "province": "云南"
+  },
+  "昆玉": {
+    "adcode": "659009",
+    "file": "/maps/cities/659009.json",
+    "name": "昆玉市",
+    "alias": "昆玉",
+    "province": "新疆维吾尔"
+  },
+  "拉萨": {
+    "adcode": "540100",
+    "file": "/maps/cities/540100.json",
+    "name": "拉萨市",
+    "alias": "拉萨",
+    "province": "西藏"
+  },
+  "来宾": {
+    "adcode": "451300",
+    "file": "/maps/cities/451300.json",
+    "name": "来宾市",
+    "alias": "来宾",
+    "province": "广西壮族"
+  },
+  "兰州": {
+    "adcode": "620100",
+    "file": "/maps/cities/620100.json",
+    "name": "兰州市",
+    "alias": "兰州",
+    "province": "甘肃"
+  },
+  "廊坊": {
+    "adcode": "131000",
+    "file": "/maps/cities/131000.json",
+    "name": "廊坊市",
+    "alias": "廊坊",
+    "province": "河北"
+  },
+  "乐东黎族自治县": {
+    "adcode": "469027",
+    "file": "/maps/cities/469027.json",
+    "name": "乐东黎族自治县",
+    "alias": "乐东黎族自治县",
+    "province": "海南"
+  },
+  "乐山": {
+    "adcode": "511100",
+    "file": "/maps/cities/511100.json",
+    "name": "乐山市",
+    "alias": "乐山",
+    "province": "四川"
+  },
+  "丽江": {
+    "adcode": "530700",
+    "file": "/maps/cities/530700.json",
+    "name": "丽江市",
+    "alias": "丽江",
+    "province": "云南"
+  },
+  "丽水": {
+    "adcode": "331100",
+    "file": "/maps/cities/331100.json",
+    "name": "丽水市",
+    "alias": "丽水",
+    "province": "浙江"
+  },
+  "连云港": {
+    "adcode": "320700",
+    "file": "/maps/cities/320700.json",
+    "name": "连云港市",
+    "alias": "连云港",
+    "province": "江苏"
+  },
+  "凉山": {
+    "adcode": "513400",
+    "file": "/maps/cities/513400.json",
+    "name": "凉山彝族自治州",
+    "alias": "凉山",
+    "province": "四川"
+  },
+  "梁平区": {
+    "adcode": "500155",
+    "file": "/maps/cities/500155.json",
+    "name": "梁平区",
+    "alias": "梁平区",
+    "province": "重庆"
+  },
+  "辽阳": {
+    "adcode": "211000",
+    "file": "/maps/cities/211000.json",
+    "name": "辽阳市",
+    "alias": "辽阳",
+    "province": "辽宁"
+  },
+  "辽源": {
+    "adcode": "220400",
+    "file": "/maps/cities/220400.json",
+    "name": "辽源市",
+    "alias": "辽源",
+    "province": "吉林"
+  },
+  "聊城": {
+    "adcode": "371500",
+    "file": "/maps/cities/371500.json",
+    "name": "聊城市",
+    "alias": "聊城",
+    "province": "山东"
+  },
+  "林芝": {
+    "adcode": "540400",
+    "file": "/maps/cities/540400.json",
+    "name": "林芝市",
+    "alias": "林芝",
+    "province": "西藏"
+  },
+  "临沧": {
+    "adcode": "530900",
+    "file": "/maps/cities/530900.json",
+    "name": "临沧市",
+    "alias": "临沧",
+    "province": "云南"
+  },
+  "临汾": {
+    "adcode": "141000",
+    "file": "/maps/cities/141000.json",
+    "name": "临汾市",
+    "alias": "临汾",
+    "province": "山西"
+  },
+  "临高县": {
+    "adcode": "469024",
+    "file": "/maps/cities/469024.json",
+    "name": "临高县",
+    "alias": "临高县",
+    "province": "海南"
+  },
+  "临夏": {
+    "adcode": "622900",
+    "file": "/maps/cities/622900.json",
+    "name": "临夏回族自治州",
+    "alias": "临夏",
+    "province": "甘肃"
+  },
+  "临沂": {
+    "adcode": "371300",
+    "file": "/maps/cities/371300.json",
+    "name": "临沂市",
+    "alias": "临沂",
+    "province": "山东"
+  },
+  "陵水黎族自治县": {
+    "adcode": "469028",
+    "file": "/maps/cities/469028.json",
+    "name": "陵水黎族自治县",
+    "alias": "陵水黎族自治县",
+    "province": "海南"
+  },
+  "柳州": {
+    "adcode": "450200",
+    "file": "/maps/cities/450200.json",
+    "name": "柳州市",
+    "alias": "柳州",
+    "province": "广西壮族"
+  },
+  "六安": {
+    "adcode": "341500",
+    "file": "/maps/cities/341500.json",
+    "name": "六安市",
+    "alias": "六安",
+    "province": "安徽"
+  },
+  "六盘水": {
+    "adcode": "520200",
+    "file": "/maps/cities/520200.json",
+    "name": "六盘水市",
+    "alias": "六盘水",
+    "province": "贵州"
+  },
+  "龙岩": {
+    "adcode": "350800",
+    "file": "/maps/cities/350800.json",
+    "name": "龙岩市",
+    "alias": "龙岩",
+    "province": "福建"
+  },
+  "陇南": {
+    "adcode": "621200",
+    "file": "/maps/cities/621200.json",
+    "name": "陇南市",
+    "alias": "陇南",
+    "province": "甘肃"
+  },
+  "娄底": {
+    "adcode": "431300",
+    "file": "/maps/cities/431300.json",
+    "name": "娄底市",
+    "alias": "娄底",
+    "province": "湖南"
+  },
+  "泸州": {
+    "adcode": "510500",
+    "file": "/maps/cities/510500.json",
+    "name": "泸州市",
+    "alias": "泸州",
+    "province": "四川"
+  },
+  "吕梁": {
+    "adcode": "141100",
+    "file": "/maps/cities/141100.json",
+    "name": "吕梁市",
+    "alias": "吕梁",
+    "province": "山西"
+  },
+  "洛阳": {
+    "adcode": "410300",
+    "file": "/maps/cities/410300.json",
+    "name": "洛阳市",
+    "alias": "洛阳",
+    "province": "河南"
+  },
+  "漯河": {
+    "adcode": "411100",
+    "file": "/maps/cities/411100.json",
+    "name": "漯河市",
+    "alias": "漯河",
+    "province": "河南"
+  },
+  "马鞍山": {
+    "adcode": "340500",
+    "file": "/maps/cities/340500.json",
+    "name": "马鞍山市",
+    "alias": "马鞍山",
+    "province": "安徽"
+  },
+  "茂名": {
+    "adcode": "440900",
+    "file": "/maps/cities/440900.json",
+    "name": "茂名市",
+    "alias": "茂名",
+    "province": "广东"
+  },
+  "眉山": {
+    "adcode": "511400",
+    "file": "/maps/cities/511400.json",
+    "name": "眉山市",
+    "alias": "眉山",
+    "province": "四川"
+  },
+  "梅州": {
+    "adcode": "441400",
+    "file": "/maps/cities/441400.json",
+    "name": "梅州市",
+    "alias": "梅州",
+    "province": "广东"
+  },
+  "门头沟区": {
+    "adcode": "110109",
+    "file": "/maps/cities/110109.json",
+    "name": "门头沟区",
+    "alias": "门头沟区",
+    "province": "北京"
+  },
+  "密云区": {
+    "adcode": "110118",
+    "file": "/maps/cities/110118.json",
+    "name": "密云区",
+    "alias": "密云区",
+    "province": "北京"
+  },
+  "绵阳": {
+    "adcode": "510700",
+    "file": "/maps/cities/510700.json",
+    "name": "绵阳市",
+    "alias": "绵阳",
+    "province": "四川"
+  },
+  "闵行区": {
+    "adcode": "310112",
+    "file": "/maps/cities/310112.json",
+    "name": "闵行区",
+    "alias": "闵行区",
+    "province": "上海"
+  },
+  "牡丹江": {
+    "adcode": "231000",
+    "file": "/maps/cities/231000.json",
+    "name": "牡丹江市",
+    "alias": "牡丹江",
+    "province": "黑龙江"
+  },
+  "那曲": {
+    "adcode": "540600",
+    "file": "/maps/cities/540600.json",
+    "name": "那曲市",
+    "alias": "那曲",
+    "province": "西藏"
+  },
+  "南岸区": {
+    "adcode": "500108",
+    "file": "/maps/cities/500108.json",
+    "name": "南岸区",
+    "alias": "南岸区",
+    "province": "重庆"
+  },
+  "南昌": {
+    "adcode": "360100",
+    "file": "/maps/cities/360100.json",
+    "name": "南昌市",
+    "alias": "南昌",
+    "province": "江西"
+  },
+  "南充": {
+    "adcode": "511300",
+    "file": "/maps/cities/511300.json",
+    "name": "南充市",
+    "alias": "南充",
+    "province": "四川"
+  },
+  "南川区": {
+    "adcode": "500119",
+    "file": "/maps/cities/500119.json",
+    "name": "南川区",
+    "alias": "南川区",
+    "province": "重庆"
+  },
+  "南京": {
+    "adcode": "320100",
+    "file": "/maps/cities/320100.json",
+    "name": "南京市",
+    "alias": "南京",
+    "province": "江苏"
+  },
+  "南开区": {
+    "adcode": "120104",
+    "file": "/maps/cities/120104.json",
+    "name": "南开区",
+    "alias": "南开区",
+    "province": "天津"
+  },
+  "南宁": {
+    "adcode": "450100",
+    "file": "/maps/cities/450100.json",
+    "name": "南宁市",
+    "alias": "南宁",
+    "province": "广西壮族"
+  },
+  "南平": {
+    "adcode": "350700",
+    "file": "/maps/cities/350700.json",
+    "name": "南平市",
+    "alias": "南平",
+    "province": "福建"
+  },
+  "南通": {
+    "adcode": "320600",
+    "file": "/maps/cities/320600.json",
+    "name": "南通市",
+    "alias": "南通",
+    "province": "江苏"
+  },
+  "南阳": {
+    "adcode": "411300",
+    "file": "/maps/cities/411300.json",
+    "name": "南阳市",
+    "alias": "南阳",
+    "province": "河南"
+  },
+  "内江": {
+    "adcode": "511000",
+    "file": "/maps/cities/511000.json",
+    "name": "内江市",
+    "alias": "内江",
+    "province": "四川"
+  },
+  "宁波": {
+    "adcode": "330200",
+    "file": "/maps/cities/330200.json",
+    "name": "宁波市",
+    "alias": "宁波",
+    "province": "浙江"
+  },
+  "宁德": {
+    "adcode": "350900",
+    "file": "/maps/cities/350900.json",
+    "name": "宁德市",
+    "alias": "宁德",
+    "province": "福建"
+  },
+  "宁河区": {
+    "adcode": "120117",
+    "file": "/maps/cities/120117.json",
+    "name": "宁河区",
+    "alias": "宁河区",
+    "province": "天津"
+  },
+  "怒江": {
+    "adcode": "533300",
+    "file": "/maps/cities/533300.json",
+    "name": "怒江傈僳族自治州",
+    "alias": "怒江",
+    "province": "云南"
+  },
+  "攀枝花": {
+    "adcode": "510400",
+    "file": "/maps/cities/510400.json",
+    "name": "攀枝花市",
+    "alias": "攀枝花",
+    "province": "四川"
+  },
+  "盘锦": {
+    "adcode": "211100",
+    "file": "/maps/cities/211100.json",
+    "name": "盘锦市",
+    "alias": "盘锦",
+    "province": "辽宁"
+  },
+  "彭水苗族土家族自治县": {
+    "adcode": "500243",
+    "file": "/maps/cities/500243.json",
+    "name": "彭水苗族土家族自治县",
+    "alias": "彭水苗族土家族自治县",
+    "province": "重庆"
+  },
+  "平顶山": {
+    "adcode": "410400",
+    "file": "/maps/cities/410400.json",
+    "name": "平顶山市",
+    "alias": "平顶山",
+    "province": "河南"
+  },
+  "平谷区": {
+    "adcode": "110117",
+    "file": "/maps/cities/110117.json",
+    "name": "平谷区",
+    "alias": "平谷区",
+    "province": "北京"
+  },
+  "平凉": {
+    "adcode": "620800",
+    "file": "/maps/cities/620800.json",
+    "name": "平凉市",
+    "alias": "平凉",
+    "province": "甘肃"
+  },
+  "萍乡": {
+    "adcode": "360300",
+    "file": "/maps/cities/360300.json",
+    "name": "萍乡市",
+    "alias": "萍乡",
+    "province": "江西"
+  },
+  "莆田": {
+    "adcode": "350300",
+    "file": "/maps/cities/350300.json",
+    "name": "莆田市",
+    "alias": "莆田",
+    "province": "福建"
+  },
+  "濮阳": {
+    "adcode": "410900",
+    "file": "/maps/cities/410900.json",
+    "name": "濮阳市",
+    "alias": "濮阳",
+    "province": "河南"
+  },
+  "浦东新区": {
+    "adcode": "310115",
+    "file": "/maps/cities/310115.json",
+    "name": "浦东新区",
+    "alias": "浦东新区",
+    "province": "上海"
+  },
+  "普洱": {
+    "adcode": "530800",
+    "file": "/maps/cities/530800.json",
+    "name": "普洱市",
+    "alias": "普洱",
+    "province": "云南"
+  },
+  "普陀区": {
+    "adcode": "310107",
+    "file": "/maps/cities/310107.json",
+    "name": "普陀区",
+    "alias": "普陀区",
+    "province": "上海"
+  },
+  "七台河": {
+    "adcode": "230900",
+    "file": "/maps/cities/230900.json",
+    "name": "七台河市",
+    "alias": "七台河",
+    "province": "黑龙江"
+  },
+  "齐齐哈尔": {
+    "adcode": "230200",
+    "file": "/maps/cities/230200.json",
+    "name": "齐齐哈尔市",
+    "alias": "齐齐哈尔",
+    "province": "黑龙江"
+  },
+  "綦江区": {
+    "adcode": "500110",
+    "file": "/maps/cities/500110.json",
+    "name": "綦江区",
+    "alias": "綦江区",
+    "province": "重庆"
+  },
+  "潜江": {
+    "adcode": "429005",
+    "file": "/maps/cities/429005.json",
+    "name": "潜江市",
+    "alias": "潜江",
+    "province": "湖北"
+  },
+  "黔东南": {
+    "adcode": "522600",
+    "file": "/maps/cities/522600.json",
+    "name": "黔东南苗族侗族自治州",
+    "alias": "黔东南",
+    "province": "贵州"
+  },
+  "黔江区": {
+    "adcode": "500114",
+    "file": "/maps/cities/500114.json",
+    "name": "黔江区",
+    "alias": "黔江区",
+    "province": "重庆"
+  },
+  "黔南": {
+    "adcode": "522700",
+    "file": "/maps/cities/522700.json",
+    "name": "黔南布依族苗族自治州",
+    "alias": "黔南",
+    "province": "贵州"
+  },
+  "黔西南": {
+    "adcode": "522300",
+    "file": "/maps/cities/522300.json",
+    "name": "黔西南布依族苗族自治州",
+    "alias": "黔西南",
+    "province": "贵州"
+  },
+  "钦州": {
+    "adcode": "450700",
+    "file": "/maps/cities/450700.json",
+    "name": "钦州市",
+    "alias": "钦州",
+    "province": "广西壮族"
+  },
+  "秦皇岛": {
+    "adcode": "130300",
+    "file": "/maps/cities/130300.json",
+    "name": "秦皇岛市",
+    "alias": "秦皇岛",
+    "province": "河北"
+  },
+  "青岛": {
+    "adcode": "370200",
+    "file": "/maps/cities/370200.json",
+    "name": "青岛市",
+    "alias": "青岛",
+    "province": "山东"
+  },
+  "青浦区": {
+    "adcode": "310118",
+    "file": "/maps/cities/310118.json",
+    "name": "青浦区",
+    "alias": "青浦区",
+    "province": "上海"
+  },
+  "清远": {
+    "adcode": "441800",
+    "file": "/maps/cities/441800.json",
+    "name": "清远市",
+    "alias": "清远",
+    "province": "广东"
+  },
+  "庆阳": {
+    "adcode": "621000",
+    "file": "/maps/cities/621000.json",
+    "name": "庆阳市",
+    "alias": "庆阳",
+    "province": "甘肃"
+  },
+  "琼海": {
+    "adcode": "469002",
+    "file": "/maps/cities/469002.json",
+    "name": "琼海市",
+    "alias": "琼海",
+    "province": "海南"
+  },
+  "琼中黎族苗族自治县": {
+    "adcode": "469030",
+    "file": "/maps/cities/469030.json",
+    "name": "琼中黎族苗族自治县",
+    "alias": "琼中黎族苗族自治县",
+    "province": "海南"
+  },
+  "曲靖": {
+    "adcode": "530300",
+    "file": "/maps/cities/530300.json",
+    "name": "曲靖市",
+    "alias": "曲靖",
+    "province": "云南"
+  },
+  "衢州": {
+    "adcode": "330800",
+    "file": "/maps/cities/330800.json",
+    "name": "衢州市",
+    "alias": "衢州",
+    "province": "浙江"
+  },
+  "泉州": {
+    "adcode": "350500",
+    "file": "/maps/cities/350500.json",
+    "name": "泉州市",
+    "alias": "泉州",
+    "province": "福建"
+  },
+  "日喀则": {
+    "adcode": "540200",
+    "file": "/maps/cities/540200.json",
+    "name": "日喀则市",
+    "alias": "日喀则",
+    "province": "西藏"
+  },
+  "日照": {
+    "adcode": "371100",
+    "file": "/maps/cities/371100.json",
+    "name": "日照市",
+    "alias": "日照",
+    "province": "山东"
+  },
+  "荣昌区": {
+    "adcode": "500153",
+    "file": "/maps/cities/500153.json",
+    "name": "荣昌区",
+    "alias": "荣昌区",
+    "province": "重庆"
+  },
+  "三门峡": {
+    "adcode": "411200",
+    "file": "/maps/cities/411200.json",
+    "name": "三门峡市",
+    "alias": "三门峡",
+    "province": "河南"
+  },
+  "三明": {
+    "adcode": "350400",
+    "file": "/maps/cities/350400.json",
+    "name": "三明市",
+    "alias": "三明",
+    "province": "福建"
+  },
+  "三沙": {
+    "adcode": "460300",
+    "file": "/maps/cities/460300.json",
+    "name": "三沙市",
+    "alias": "三沙",
+    "province": "海南"
+  },
+  "三亚": {
+    "adcode": "460200",
+    "file": "/maps/cities/460200.json",
+    "name": "三亚市",
+    "alias": "三亚",
+    "province": "海南"
+  },
+  "沙坪坝区": {
+    "adcode": "500106",
+    "file": "/maps/cities/500106.json",
+    "name": "沙坪坝区",
+    "alias": "沙坪坝区",
+    "province": "重庆"
+  },
+  "厦门": {
+    "adcode": "350200",
+    "file": "/maps/cities/350200.json",
+    "name": "厦门市",
+    "alias": "厦门",
+    "province": "福建"
+  },
+  "山南": {
+    "adcode": "540500",
+    "file": "/maps/cities/540500.json",
+    "name": "山南市",
+    "alias": "山南",
+    "province": "西藏"
+  },
+  "汕头": {
+    "adcode": "440500",
+    "file": "/maps/cities/440500.json",
+    "name": "汕头市",
+    "alias": "汕头",
+    "province": "广东"
+  },
+  "汕尾": {
+    "adcode": "441500",
+    "file": "/maps/cities/441500.json",
+    "name": "汕尾市",
+    "alias": "汕尾",
+    "province": "广东"
+  },
+  "商洛": {
+    "adcode": "611000",
+    "file": "/maps/cities/611000.json",
+    "name": "商洛市",
+    "alias": "商洛",
+    "province": "陕西"
+  },
+  "商丘": {
+    "adcode": "411400",
+    "file": "/maps/cities/411400.json",
+    "name": "商丘市",
+    "alias": "商丘",
+    "province": "河南"
+  },
+  "上海": {
+    "adcode": "310000",
+    "file": "/maps/cities/310000.json",
+    "name": "上海市",
+    "alias": "上海",
+    "province": "上海"
+  },
+  "上饶": {
+    "adcode": "361100",
+    "file": "/maps/cities/361100.json",
+    "name": "上饶市",
+    "alias": "上饶",
+    "province": "江西"
+  },
+  "韶关": {
+    "adcode": "440200",
+    "file": "/maps/cities/440200.json",
+    "name": "韶关市",
+    "alias": "韶关",
+    "province": "广东"
+  },
+  "邵阳": {
+    "adcode": "430500",
+    "file": "/maps/cities/430500.json",
+    "name": "邵阳市",
+    "alias": "邵阳",
+    "province": "湖南"
+  },
+  "绍兴": {
+    "adcode": "330600",
+    "file": "/maps/cities/330600.json",
+    "name": "绍兴市",
+    "alias": "绍兴",
+    "province": "浙江"
+  },
+  "深圳": {
+    "adcode": "440300",
+    "file": "/maps/cities/440300.json",
+    "name": "深圳市",
+    "alias": "深圳",
+    "province": "广东"
+  },
+  "神农架": {
+    "adcode": "429021",
+    "file": "/maps/cities/429021.json",
+    "name": "神农架林区",
+    "alias": "神农架",
+    "province": "湖北"
+  },
+  "沈阳": {
+    "adcode": "210100",
+    "file": "/maps/cities/210100.json",
+    "name": "沈阳市",
+    "alias": "沈阳",
+    "province": "辽宁"
+  },
+  "十堰": {
+    "adcode": "420300",
+    "file": "/maps/cities/420300.json",
+    "name": "十堰市",
+    "alias": "十堰",
+    "province": "湖北"
+  },
+  "石河子": {
+    "adcode": "659001",
+    "file": "/maps/cities/659001.json",
+    "name": "石河子市",
+    "alias": "石河子",
+    "province": "新疆维吾尔"
+  },
+  "石家庄": {
+    "adcode": "130100",
+    "file": "/maps/cities/130100.json",
+    "name": "石家庄市",
+    "alias": "石家庄",
+    "province": "河北"
+  },
+  "石景山区": {
+    "adcode": "110107",
+    "file": "/maps/cities/110107.json",
+    "name": "石景山区",
+    "alias": "石景山区",
+    "province": "北京"
+  },
+  "石柱土家族自治县": {
+    "adcode": "500240",
+    "file": "/maps/cities/500240.json",
+    "name": "石柱土家族自治县",
+    "alias": "石柱土家族自治县",
+    "province": "重庆"
+  },
+  "石嘴山": {
+    "adcode": "640200",
+    "file": "/maps/cities/640200.json",
+    "name": "石嘴山市",
+    "alias": "石嘴山",
+    "province": "宁夏回族"
+  },
+  "双河": {
+    "adcode": "659007",
+    "file": "/maps/cities/659007.json",
+    "name": "双河市",
+    "alias": "双河",
+    "province": "新疆维吾尔"
+  },
+  "双鸭山": {
+    "adcode": "230500",
+    "file": "/maps/cities/230500.json",
+    "name": "双鸭山市",
+    "alias": "双鸭山",
+    "province": "黑龙江"
+  },
+  "顺义区": {
+    "adcode": "110113",
+    "file": "/maps/cities/110113.json",
+    "name": "顺义区",
+    "alias": "顺义区",
+    "province": "北京"
+  },
+  "朔州": {
+    "adcode": "140600",
+    "file": "/maps/cities/140600.json",
+    "name": "朔州市",
+    "alias": "朔州",
+    "province": "山西"
+  },
+  "四平": {
+    "adcode": "220300",
+    "file": "/maps/cities/220300.json",
+    "name": "四平市",
+    "alias": "四平",
+    "province": "吉林"
+  },
+  "松江区": {
+    "adcode": "310117",
+    "file": "/maps/cities/310117.json",
+    "name": "松江区",
+    "alias": "松江区",
+    "province": "上海"
+  },
+  "松原": {
+    "adcode": "220700",
+    "file": "/maps/cities/220700.json",
+    "name": "松原市",
+    "alias": "松原",
+    "province": "吉林"
+  },
+  "苏州": {
+    "adcode": "320500",
+    "file": "/maps/cities/320500.json",
+    "name": "苏州市",
+    "alias": "苏州",
+    "province": "江苏"
+  },
+  "宿迁": {
+    "adcode": "321300",
+    "file": "/maps/cities/321300.json",
+    "name": "宿迁市",
+    "alias": "宿迁",
+    "province": "江苏"
+  },
+  "宿州": {
+    "adcode": "341300",
+    "file": "/maps/cities/341300.json",
+    "name": "宿州市",
+    "alias": "宿州",
+    "province": "安徽"
+  },
+  "绥化": {
+    "adcode": "231200",
+    "file": "/maps/cities/231200.json",
+    "name": "绥化市",
+    "alias": "绥化",
+    "province": "黑龙江"
+  },
+  "随州": {
+    "adcode": "421300",
+    "file": "/maps/cities/421300.json",
+    "name": "随州市",
+    "alias": "随州",
+    "province": "湖北"
+  },
+  "遂宁": {
+    "adcode": "510900",
+    "file": "/maps/cities/510900.json",
+    "name": "遂宁市",
+    "alias": "遂宁",
+    "province": "四川"
+  },
+  "塔城": {
+    "adcode": "654200",
+    "file": "/maps/cities/654200.json",
+    "name": "塔城地区",
+    "alias": "塔城",
+    "province": "新疆维吾尔"
+  },
+  "台州": {
+    "adcode": "331000",
+    "file": "/maps/cities/331000.json",
+    "name": "台州市",
+    "alias": "台州",
+    "province": "浙江"
+  },
+  "太原": {
+    "adcode": "140100",
+    "file": "/maps/cities/140100.json",
+    "name": "太原市",
+    "alias": "太原",
+    "province": "山西"
+  },
+  "泰安": {
+    "adcode": "370900",
+    "file": "/maps/cities/370900.json",
+    "name": "泰安市",
+    "alias": "泰安",
+    "province": "山东"
+  },
+  "泰州": {
+    "adcode": "321200",
+    "file": "/maps/cities/321200.json",
+    "name": "泰州市",
+    "alias": "泰州",
+    "province": "江苏"
+  },
+  "唐山": {
+    "adcode": "130200",
+    "file": "/maps/cities/130200.json",
+    "name": "唐山市",
+    "alias": "唐山",
+    "province": "河北"
+  },
+  "天津": {
+    "adcode": "120000",
+    "file": "/maps/cities/120000.json",
+    "name": "天津市",
+    "alias": "天津",
+    "province": "天津"
+  },
+  "天门": {
+    "adcode": "429006",
+    "file": "/maps/cities/429006.json",
+    "name": "天门市",
+    "alias": "天门",
+    "province": "湖北"
+  },
+  "天水": {
+    "adcode": "620500",
+    "file": "/maps/cities/620500.json",
+    "name": "天水市",
+    "alias": "天水",
+    "province": "甘肃"
+  },
+  "铁岭": {
+    "adcode": "211200",
+    "file": "/maps/cities/211200.json",
+    "name": "铁岭市",
+    "alias": "铁岭",
+    "province": "辽宁"
+  },
+  "铁门关": {
+    "adcode": "659006",
+    "file": "/maps/cities/659006.json",
+    "name": "铁门关市",
+    "alias": "铁门关",
+    "province": "新疆维吾尔"
+  },
+  "通化": {
+    "adcode": "220500",
+    "file": "/maps/cities/220500.json",
+    "name": "通化市",
+    "alias": "通化",
+    "province": "吉林"
+  },
+  "通辽": {
+    "adcode": "150500",
+    "file": "/maps/cities/150500.json",
+    "name": "通辽市",
+    "alias": "通辽",
+    "province": "内蒙古"
+  },
+  "通州区": {
+    "adcode": "110112",
+    "file": "/maps/cities/110112.json",
+    "name": "通州区",
+    "alias": "通州区",
+    "province": "北京"
+  },
+  "铜川": {
+    "adcode": "610200",
+    "file": "/maps/cities/610200.json",
+    "name": "铜川市",
+    "alias": "铜川",
+    "province": "陕西"
+  },
+  "铜梁区": {
+    "adcode": "500151",
+    "file": "/maps/cities/500151.json",
+    "name": "铜梁区",
+    "alias": "铜梁区",
+    "province": "重庆"
+  },
+  "铜陵": {
+    "adcode": "340700",
+    "file": "/maps/cities/340700.json",
+    "name": "铜陵市",
+    "alias": "铜陵",
+    "province": "安徽"
+  },
+  "铜仁": {
+    "adcode": "520600",
+    "file": "/maps/cities/520600.json",
+    "name": "铜仁市",
+    "alias": "铜仁",
+    "province": "贵州"
+  },
+  "潼南区": {
+    "adcode": "500152",
+    "file": "/maps/cities/500152.json",
+    "name": "潼南区",
+    "alias": "潼南区",
+    "province": "重庆"
+  },
+  "图木舒克": {
+    "adcode": "659003",
+    "file": "/maps/cities/659003.json",
+    "name": "图木舒克市",
+    "alias": "图木舒克",
+    "province": "新疆维吾尔"
+  },
+  "吐鲁番": {
+    "adcode": "650400",
+    "file": "/maps/cities/650400.json",
+    "name": "吐鲁番市",
+    "alias": "吐鲁番",
+    "province": "新疆维吾尔"
+  },
+  "屯昌县": {
+    "adcode": "469022",
+    "file": "/maps/cities/469022.json",
+    "name": "屯昌县",
+    "alias": "屯昌县",
+    "province": "海南"
+  },
+  "万宁": {
+    "adcode": "469006",
+    "file": "/maps/cities/469006.json",
+    "name": "万宁市",
+    "alias": "万宁",
+    "province": "海南"
+  },
+  "万州区": {
+    "adcode": "500101",
+    "file": "/maps/cities/500101.json",
+    "name": "万州区",
+    "alias": "万州区",
+    "province": "重庆"
+  },
+  "威海": {
+    "adcode": "371000",
+    "file": "/maps/cities/371000.json",
+    "name": "威海市",
+    "alias": "威海",
+    "province": "山东"
+  },
+  "潍坊": {
+    "adcode": "370700",
+    "file": "/maps/cities/370700.json",
+    "name": "潍坊市",
+    "alias": "潍坊",
+    "province": "山东"
+  },
+  "渭南": {
+    "adcode": "610500",
+    "file": "/maps/cities/610500.json",
+    "name": "渭南市",
+    "alias": "渭南",
+    "province": "陕西"
+  },
+  "温州": {
+    "adcode": "330300",
+    "file": "/maps/cities/330300.json",
+    "name": "温州市",
+    "alias": "温州",
+    "province": "浙江"
+  },
+  "文昌": {
+    "adcode": "469005",
+    "file": "/maps/cities/469005.json",
+    "name": "文昌市",
+    "alias": "文昌",
+    "province": "海南"
+  },
+  "文山": {
+    "adcode": "532600",
+    "file": "/maps/cities/532600.json",
+    "name": "文山壮族苗族自治州",
+    "alias": "文山",
+    "province": "云南"
+  },
+  "乌海": {
+    "adcode": "150300",
+    "file": "/maps/cities/150300.json",
+    "name": "乌海市",
+    "alias": "乌海",
+    "province": "内蒙古"
+  },
+  "乌兰察布": {
+    "adcode": "150900",
+    "file": "/maps/cities/150900.json",
+    "name": "乌兰察布市",
+    "alias": "乌兰察布",
+    "province": "内蒙古"
+  },
+  "乌鲁木齐": {
+    "adcode": "650100",
+    "file": "/maps/cities/650100.json",
+    "name": "乌鲁木齐市",
+    "alias": "乌鲁木齐",
+    "province": "新疆维吾尔"
+  },
+  "巫山县": {
+    "adcode": "500237",
+    "file": "/maps/cities/500237.json",
+    "name": "巫山县",
+    "alias": "巫山县",
+    "province": "重庆"
+  },
+  "巫溪县": {
+    "adcode": "500238",
+    "file": "/maps/cities/500238.json",
+    "name": "巫溪县",
+    "alias": "巫溪县",
+    "province": "重庆"
+  },
+  "无锡": {
+    "adcode": "320200",
+    "file": "/maps/cities/320200.json",
+    "name": "无锡市",
+    "alias": "无锡",
+    "province": "江苏"
+  },
+  "吴忠": {
+    "adcode": "640300",
+    "file": "/maps/cities/640300.json",
+    "name": "吴忠市",
+    "alias": "吴忠",
+    "province": "宁夏回族"
+  },
+  "芜湖": {
+    "adcode": "340200",
+    "file": "/maps/cities/340200.json",
+    "name": "芜湖市",
+    "alias": "芜湖",
+    "province": "安徽"
+  },
+  "梧州": {
+    "adcode": "450400",
+    "file": "/maps/cities/450400.json",
+    "name": "梧州市",
+    "alias": "梧州",
+    "province": "广西壮族"
+  },
+  "五家渠": {
+    "adcode": "659004",
+    "file": "/maps/cities/659004.json",
+    "name": "五家渠市",
+    "alias": "五家渠",
+    "province": "新疆维吾尔"
+  },
+  "五指山": {
+    "adcode": "469001",
+    "file": "/maps/cities/469001.json",
+    "name": "五指山市",
+    "alias": "五指山",
+    "province": "海南"
+  },
+  "武汉": {
+    "adcode": "420100",
+    "file": "/maps/cities/420100.json",
+    "name": "武汉市",
+    "alias": "武汉",
+    "province": "湖北"
+  },
+  "武隆区": {
+    "adcode": "500156",
+    "file": "/maps/cities/500156.json",
+    "name": "武隆区",
+    "alias": "武隆区",
+    "province": "重庆"
+  },
+  "武清区": {
+    "adcode": "120114",
+    "file": "/maps/cities/120114.json",
+    "name": "武清区",
+    "alias": "武清区",
+    "province": "天津"
+  },
+  "武威": {
+    "adcode": "620600",
+    "file": "/maps/cities/620600.json",
+    "name": "武威市",
+    "alias": "武威",
+    "province": "甘肃"
+  },
+  "西安": {
+    "adcode": "610100",
+    "file": "/maps/cities/610100.json",
+    "name": "西安市",
+    "alias": "西安",
+    "province": "陕西"
+  },
+  "西城区": {
+    "adcode": "110102",
+    "file": "/maps/cities/110102.json",
+    "name": "西城区",
+    "alias": "西城区",
+    "province": "北京"
+  },
+  "西宁": {
+    "adcode": "630100",
+    "file": "/maps/cities/630100.json",
+    "name": "西宁市",
+    "alias": "西宁",
+    "province": "青海"
+  },
+  "西青区": {
+    "adcode": "120111",
+    "file": "/maps/cities/120111.json",
+    "name": "西青区",
+    "alias": "西青区",
+    "province": "天津"
+  },
+  "西双版纳": {
+    "adcode": "532800",
+    "file": "/maps/cities/532800.json",
+    "name": "西双版纳傣族自治州",
+    "alias": "西双版纳",
+    "province": "云南"
+  },
+  "锡林郭勒": {
+    "adcode": "152500",
+    "file": "/maps/cities/152500.json",
+    "name": "锡林郭勒盟",
+    "alias": "锡林郭勒",
+    "province": "内蒙古"
+  },
+  "仙桃": {
+    "adcode": "429004",
+    "file": "/maps/cities/429004.json",
+    "name": "仙桃市",
+    "alias": "仙桃",
+    "province": "湖北"
+  },
+  "咸宁": {
+    "adcode": "421200",
+    "file": "/maps/cities/421200.json",
+    "name": "咸宁市",
+    "alias": "咸宁",
+    "province": "湖北"
+  },
+  "咸阳": {
+    "adcode": "610400",
+    "file": "/maps/cities/610400.json",
+    "name": "咸阳市",
+    "alias": "咸阳",
+    "province": "陕西"
+  },
+  "香港": {
+    "adcode": "810000",
+    "file": "/maps/cities/810000.json",
+    "name": "香港特别行政区",
+    "alias": "香港",
+    "province": "香港"
+  },
+  "湘潭": {
+    "adcode": "430300",
+    "file": "/maps/cities/430300.json",
+    "name": "湘潭市",
+    "alias": "湘潭",
+    "province": "湖南"
+  },
+  "湘西": {
+    "adcode": "433100",
+    "file": "/maps/cities/433100.json",
+    "name": "湘西土家族苗族自治州",
+    "alias": "湘西",
+    "province": "湖南"
+  },
+  "襄阳": {
+    "adcode": "420600",
+    "file": "/maps/cities/420600.json",
+    "name": "襄阳市",
+    "alias": "襄阳",
+    "province": "湖北"
+  },
+  "孝感": {
+    "adcode": "420900",
+    "file": "/maps/cities/420900.json",
+    "name": "孝感市",
+    "alias": "孝感",
+    "province": "湖北"
+  },
+  "忻州": {
+    "adcode": "140900",
+    "file": "/maps/cities/140900.json",
+    "name": "忻州市",
+    "alias": "忻州",
+    "province": "山西"
+  },
+  "新乡": {
+    "adcode": "410700",
+    "file": "/maps/cities/410700.json",
+    "name": "新乡市",
+    "alias": "新乡",
+    "province": "河南"
+  },
+  "新余": {
+    "adcode": "360500",
+    "file": "/maps/cities/360500.json",
+    "name": "新余市",
+    "alias": "新余",
+    "province": "江西"
+  },
+  "信阳": {
+    "adcode": "411500",
+    "file": "/maps/cities/411500.json",
+    "name": "信阳市",
+    "alias": "信阳",
+    "province": "河南"
+  },
+  "邢台": {
+    "adcode": "130500",
+    "file": "/maps/cities/130500.json",
+    "name": "邢台市",
+    "alias": "邢台",
+    "province": "河北"
+  },
+  "兴安": {
+    "adcode": "152200",
+    "file": "/maps/cities/152200.json",
+    "name": "兴安盟",
+    "alias": "兴安",
+    "province": "内蒙古"
+  },
+  "秀山土家族苗族自治县": {
+    "adcode": "500241",
+    "file": "/maps/cities/500241.json",
+    "name": "秀山土家族苗族自治县",
+    "alias": "秀山土家族苗族自治县",
+    "province": "重庆"
+  },
+  "徐汇区": {
+    "adcode": "310104",
+    "file": "/maps/cities/310104.json",
+    "name": "徐汇区",
+    "alias": "徐汇区",
+    "province": "上海"
+  },
+  "徐州": {
+    "adcode": "320300",
+    "file": "/maps/cities/320300.json",
+    "name": "徐州市",
+    "alias": "徐州",
+    "province": "江苏"
+  },
+  "许昌": {
+    "adcode": "411000",
+    "file": "/maps/cities/411000.json",
+    "name": "许昌市",
+    "alias": "许昌",
+    "province": "河南"
+  },
+  "宣城": {
+    "adcode": "341800",
+    "file": "/maps/cities/341800.json",
+    "name": "宣城市",
+    "alias": "宣城",
+    "province": "安徽"
+  },
+  "雅安": {
+    "adcode": "511800",
+    "file": "/maps/cities/511800.json",
+    "name": "雅安市",
+    "alias": "雅安",
+    "province": "四川"
+  },
+  "烟台": {
+    "adcode": "370600",
+    "file": "/maps/cities/370600.json",
+    "name": "烟台市",
+    "alias": "烟台",
+    "province": "山东"
+  },
+  "延安": {
+    "adcode": "610600",
+    "file": "/maps/cities/610600.json",
+    "name": "延安市",
+    "alias": "延安",
+    "province": "陕西"
+  },
+  "延边": {
+    "adcode": "222400",
+    "file": "/maps/cities/222400.json",
+    "name": "延边朝鲜族自治州",
+    "alias": "延边",
+    "province": "吉林"
+  },
+  "延庆区": {
+    "adcode": "110119",
+    "file": "/maps/cities/110119.json",
+    "name": "延庆区",
+    "alias": "延庆区",
+    "province": "北京"
+  },
+  "盐城": {
+    "adcode": "320900",
+    "file": "/maps/cities/320900.json",
+    "name": "盐城市",
+    "alias": "盐城",
+    "province": "江苏"
+  },
+  "扬州": {
+    "adcode": "321000",
+    "file": "/maps/cities/321000.json",
+    "name": "扬州市",
+    "alias": "扬州",
+    "province": "江苏"
+  },
+  "阳江": {
+    "adcode": "441700",
+    "file": "/maps/cities/441700.json",
+    "name": "阳江市",
+    "alias": "阳江",
+    "province": "广东"
+  },
+  "阳泉": {
+    "adcode": "140300",
+    "file": "/maps/cities/140300.json",
+    "name": "阳泉市",
+    "alias": "阳泉",
+    "province": "山西"
+  },
+  "杨浦区": {
+    "adcode": "310110",
+    "file": "/maps/cities/310110.json",
+    "name": "杨浦区",
+    "alias": "杨浦区",
+    "province": "上海"
+  },
+  "伊春": {
+    "adcode": "230700",
+    "file": "/maps/cities/230700.json",
+    "name": "伊春市",
+    "alias": "伊春",
+    "province": "黑龙江"
+  },
+  "伊犁": {
+    "adcode": "654000",
+    "file": "/maps/cities/654000.json",
+    "name": "伊犁哈萨克自治州",
+    "alias": "伊犁",
+    "province": "新疆维吾尔"
+  },
+  "宜宾": {
+    "adcode": "511500",
+    "file": "/maps/cities/511500.json",
+    "name": "宜宾市",
+    "alias": "宜宾",
+    "province": "四川"
+  },
+  "宜昌": {
+    "adcode": "420500",
+    "file": "/maps/cities/420500.json",
+    "name": "宜昌市",
+    "alias": "宜昌",
+    "province": "湖北"
+  },
+  "宜春": {
+    "adcode": "360900",
+    "file": "/maps/cities/360900.json",
+    "name": "宜春市",
+    "alias": "宜春",
+    "province": "江西"
+  },
+  "益阳": {
+    "adcode": "430900",
+    "file": "/maps/cities/430900.json",
+    "name": "益阳市",
+    "alias": "益阳",
+    "province": "湖南"
+  },
+  "银川": {
+    "adcode": "640100",
+    "file": "/maps/cities/640100.json",
+    "name": "银川市",
+    "alias": "银川",
+    "province": "宁夏回族"
+  },
+  "鹰潭": {
+    "adcode": "360600",
+    "file": "/maps/cities/360600.json",
+    "name": "鹰潭市",
+    "alias": "鹰潭",
+    "province": "江西"
+  },
+  "营口": {
+    "adcode": "210800",
+    "file": "/maps/cities/210800.json",
+    "name": "营口市",
+    "alias": "营口",
+    "province": "辽宁"
+  },
+  "永川区": {
+    "adcode": "500118",
+    "file": "/maps/cities/500118.json",
+    "name": "永川区",
+    "alias": "永川区",
+    "province": "重庆"
+  },
+  "永州": {
+    "adcode": "431100",
+    "file": "/maps/cities/431100.json",
+    "name": "永州市",
+    "alias": "永州",
+    "province": "湖南"
+  },
+  "酉阳土家族苗族自治县": {
+    "adcode": "500242",
+    "file": "/maps/cities/500242.json",
+    "name": "酉阳土家族苗族自治县",
+    "alias": "酉阳土家族苗族自治县",
+    "province": "重庆"
+  },
+  "渝北区": {
+    "adcode": "500112",
+    "file": "/maps/cities/500112.json",
+    "name": "渝北区",
+    "alias": "渝北区",
+    "province": "重庆"
+  },
+  "渝中区": {
+    "adcode": "500103",
+    "file": "/maps/cities/500103.json",
+    "name": "渝中区",
+    "alias": "渝中区",
+    "province": "重庆"
+  },
+  "榆林": {
+    "adcode": "610800",
+    "file": "/maps/cities/610800.json",
+    "name": "榆林市",
+    "alias": "榆林",
+    "province": "陕西"
+  },
+  "玉林": {
+    "adcode": "450900",
+    "file": "/maps/cities/450900.json",
+    "name": "玉林市",
+    "alias": "玉林",
+    "province": "广西壮族"
+  },
+  "玉树": {
+    "adcode": "632700",
+    "file": "/maps/cities/632700.json",
+    "name": "玉树藏族自治州",
+    "alias": "玉树",
+    "province": "青海"
+  },
+  "玉溪": {
+    "adcode": "530400",
+    "file": "/maps/cities/530400.json",
+    "name": "玉溪市",
+    "alias": "玉溪",
+    "province": "云南"
+  },
+  "岳阳": {
+    "adcode": "430600",
+    "file": "/maps/cities/430600.json",
+    "name": "岳阳市",
+    "alias": "岳阳",
+    "province": "湖南"
+  },
+  "云浮": {
+    "adcode": "445300",
+    "file": "/maps/cities/445300.json",
+    "name": "云浮市",
+    "alias": "云浮",
+    "province": "广东"
+  },
+  "云阳县": {
+    "adcode": "500235",
+    "file": "/maps/cities/500235.json",
+    "name": "云阳县",
+    "alias": "云阳县",
+    "province": "重庆"
+  },
+  "运城": {
+    "adcode": "140800",
+    "file": "/maps/cities/140800.json",
+    "name": "运城市",
+    "alias": "运城",
+    "province": "山西"
+  },
+  "枣庄": {
+    "adcode": "370400",
+    "file": "/maps/cities/370400.json",
+    "name": "枣庄市",
+    "alias": "枣庄",
+    "province": "山东"
+  },
+  "湛江": {
+    "adcode": "440800",
+    "file": "/maps/cities/440800.json",
+    "name": "湛江市",
+    "alias": "湛江",
+    "province": "广东"
+  },
+  "张家界": {
+    "adcode": "430800",
+    "file": "/maps/cities/430800.json",
+    "name": "张家界市",
+    "alias": "张家界",
+    "province": "湖南"
+  },
+  "张家口": {
+    "adcode": "130700",
+    "file": "/maps/cities/130700.json",
+    "name": "张家口市",
+    "alias": "张家口",
+    "province": "河北"
+  },
+  "张掖": {
+    "adcode": "620700",
+    "file": "/maps/cities/620700.json",
+    "name": "张掖市",
+    "alias": "张掖",
+    "province": "甘肃"
+  },
+  "漳州": {
+    "adcode": "350600",
+    "file": "/maps/cities/350600.json",
+    "name": "漳州市",
+    "alias": "漳州",
+    "province": "福建"
+  },
+  "长春": {
+    "adcode": "220100",
+    "file": "/maps/cities/220100.json",
+    "name": "长春市",
+    "alias": "长春",
+    "province": "吉林"
+  },
+  "长宁区": {
+    "adcode": "310105",
+    "file": "/maps/cities/310105.json",
+    "name": "长宁区",
+    "alias": "长宁区",
+    "province": "上海"
+  },
+  "长沙": {
+    "adcode": "430100",
+    "file": "/maps/cities/430100.json",
+    "name": "长沙市",
+    "alias": "长沙",
+    "province": "湖南"
+  },
+  "长寿区": {
+    "adcode": "500115",
+    "file": "/maps/cities/500115.json",
+    "name": "长寿区",
+    "alias": "长寿区",
+    "province": "重庆"
+  },
+  "长治": {
+    "adcode": "140400",
+    "file": "/maps/cities/140400.json",
+    "name": "长治市",
+    "alias": "长治",
+    "province": "山西"
+  },
+  "昭通": {
+    "adcode": "530600",
+    "file": "/maps/cities/530600.json",
+    "name": "昭通市",
+    "alias": "昭通",
+    "province": "云南"
+  },
+  "肇庆": {
+    "adcode": "441200",
+    "file": "/maps/cities/441200.json",
+    "name": "肇庆市",
+    "alias": "肇庆",
+    "province": "广东"
+  },
+  "镇江": {
+    "adcode": "321100",
+    "file": "/maps/cities/321100.json",
+    "name": "镇江市",
+    "alias": "镇江",
+    "province": "江苏"
+  },
+  "郑州": {
+    "adcode": "410100",
+    "file": "/maps/cities/410100.json",
+    "name": "郑州市",
+    "alias": "郑州",
+    "province": "河南"
+  },
+  "中山": {
+    "adcode": "442000",
+    "file": "/maps/cities/442000.json",
+    "name": "中山市",
+    "alias": "中山",
+    "province": "广东"
+  },
+  "中卫": {
+    "adcode": "640500",
+    "file": "/maps/cities/640500.json",
+    "name": "中卫市",
+    "alias": "中卫",
+    "province": "宁夏回族"
+  },
+  "忠县": {
+    "adcode": "500233",
+    "file": "/maps/cities/500233.json",
+    "name": "忠县",
+    "alias": "忠县",
+    "province": "重庆"
+  },
+  "舟山": {
+    "adcode": "330900",
+    "file": "/maps/cities/330900.json",
+    "name": "舟山市",
+    "alias": "舟山",
+    "province": "浙江"
+  },
+  "周口": {
+    "adcode": "411600",
+    "file": "/maps/cities/411600.json",
+    "name": "周口市",
+    "alias": "周口",
+    "province": "河南"
+  },
+  "株洲": {
+    "adcode": "430200",
+    "file": "/maps/cities/430200.json",
+    "name": "株洲市",
+    "alias": "株洲",
+    "province": "湖南"
+  },
+  "珠海": {
+    "adcode": "440400",
+    "file": "/maps/cities/440400.json",
+    "name": "珠海市",
+    "alias": "珠海",
+    "province": "广东"
+  },
+  "驻马店": {
+    "adcode": "411700",
+    "file": "/maps/cities/411700.json",
+    "name": "驻马店市",
+    "alias": "驻马店",
+    "province": "河南"
+  },
+  "资阳": {
+    "adcode": "512000",
+    "file": "/maps/cities/512000.json",
+    "name": "资阳市",
+    "alias": "资阳",
+    "province": "四川"
+  },
+  "淄博": {
+    "adcode": "370300",
+    "file": "/maps/cities/370300.json",
+    "name": "淄博市",
+    "alias": "淄博",
+    "province": "山东"
+  },
+  "自贡": {
+    "adcode": "510300",
+    "file": "/maps/cities/510300.json",
+    "name": "自贡市",
+    "alias": "自贡",
+    "province": "四川"
+  },
+  "遵义": {
+    "adcode": "520300",
+    "file": "/maps/cities/520300.json",
+    "name": "遵义市",
+    "alias": "遵义",
+    "province": "贵州"
+  }
+}

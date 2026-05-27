@@ -2,6 +2,8 @@ import AdminShell from "@/src/frontend/components/AdminShell";
 import StatisticsDashboard from "@/src/frontend/components/StatisticsDashboard";
 import { readRecords } from "@/src/backend/lib/recordStore";
 
+export const dynamic = "force-dynamic";
+
 export default async function StatisticsPage() {
   const records = await readRecords();
 
