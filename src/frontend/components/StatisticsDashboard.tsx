@@ -110,6 +110,7 @@ const stationCityMap: Record<string, string> = {
   天津西: "天津",
   塘沽: "天津",
   武清: "天津",
+  滨海: "天津",
   秦皇岛: "秦皇岛",
   北戴河: "秦皇岛",
   承德: "承德",
@@ -465,14 +466,14 @@ export default function StatisticsDashboard({ records }: Props) {
           {mapReady ? (
             <EChart
               option={mapOption}
-            mapChart
-            onChartClick={(params) => {
-              const city = String(params.name || "");
-              const pointRecords = params.data?.records;
-              if (!pointRecords?.length) return;
-              openDetails(`城市 ${city} 明细`, pointRecords);
-            }}
-          />
+              mapChart
+              onChartClick={(params) => {
+                const city = String(params.name || "");
+                const pointRecords = params.data?.records;
+                if (!pointRecords?.length) return;
+                openDetails(`城市 ${city} 明细`, pointRecords);
+              }}
+            />
           ) : (
             <div className="map-loading">地图加载中...</div>
           )}
